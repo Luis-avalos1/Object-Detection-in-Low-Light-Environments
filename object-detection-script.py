@@ -133,9 +133,6 @@ def clahe_enhancement(low_light_image):
     return final_img
 
 
-
-
-
 def perform_object_detection(image):
     # method that performs object detection on an image usingn our pretrain YOLO model 
     # parameter: img in bgr 
@@ -143,3 +140,6 @@ def perform_object_detection(image):
     
     res = object_detection_model(image)
     return res
+
+def ground_truth_annotation():
+    return
