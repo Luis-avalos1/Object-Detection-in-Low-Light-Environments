@@ -8,19 +8,72 @@ from tqdm import tqdm
 import matplotlib as plot 
 from sklearn.metrics import precision_recall_curve, average_precision_score
 import json 
-
+import glob
 
 # we want to define a path for our dataset --> dataset should consist of low-light images with object 
 # TODO: obtain dataset, with grount truth annotations  --> an option rn is ExDark Dataset 
-
+dataset_path = 'ExDark_Dataset'
 # define an output path for our results ---> enhanced images && detection results 
+output_path = 'enhanced_images'
 
+# we are using the ExDark data set with contains its own classes 
+exdark_classes = [
+    'Bicycle', 'Boat', 'Bottle', 'Bus', 'Car', 'Cat',
+    'Chair', 'Dog', 'Motorbike', 'People', 'Table', 'Others'
+]
 
+# create a mapping from class names to index #s, for compatibility with COCO classes used by our pretrained model 
+coco_mapping = {
+    'Bicycle': 1,     # bicycle
+    'Boat': 9,        # boat
+    'Bottle': 39,     # bottle
+    'Bus': 5,         # bus
+    'Car': 2,         # car
+    'Cat': 15,        # cat
+    'Chair': 56,      # chair
+    'Dog': 16,        # dog
+    'Motorbike': 3,   # motorcycle
+    'People': 0,      # person
+    'Table': 60,      # dining table
+    # 'Others':  ignoring 
+}
 
 # define our object detection model --> using YOLO 
     # we will use a small pretrained model from ultralytics 
 object_detection_model = YOLO('yolov5s.pt')
 
+
+# our dataset seperates their images by classes so we need to iterate all these folders and get their annotations
+# create a list of the images we want and their annotations 
+images = []
+annotations = []
+
+# looping over class directories 
+for class_name in os.listdir(dataset_path):
+    class_dir = os.path.join(dataset_path, class_name)
+    # collect images in class dir 
+    if os.path.is_dir(class_dir):
+        img_file = glob(os.path.join(class_dir, '*.jpg'))
+        annot = [f.replace('.jpg', '.xml') for f in img_file]
+        
+        # append 
+        images.extend(img_file)
+        annotations.extend(annot)
+
+# additionally, we want to verify that the image and annotations for those images actually exist and are correct 
+valid_images = []
+valid_annotations = []
+
+for img_p , ann_p in zip(images, annotations):
+    if os.path.exists(img_p) and os.path.exists(ann_p):
+        valid_annotations.append(ann_p)
+        valid_images.append(img_p)
+    else:
+        print(f"Missing file: {img_p} or {ann_p}")
+        
+# if everything is correct we can use valid lis t
+images = valid_images
+annotations = valid_annotations
 
 def histogram_equalization(low_light_image):
     # method that enhances the image on the V channel of HSV color space 
