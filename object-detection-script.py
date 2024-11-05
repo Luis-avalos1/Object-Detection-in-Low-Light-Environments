@@ -57,7 +57,9 @@ def model_initialization():
      
     return object_detection_model
 
-# rename symbols 
+# rs 
+# TODO: Current Issues :: unable to 'find' annotataion files despite them being there --> Issue in load_gt ()
+    # TODO: potential fix - since we are loading in our data into these list, mabe we use the annotations from here 
 def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
     # our dataset seperates their images by classes so we need to iterate all these folders and get their annotations
     # create a list of the images we want and their annotations 
@@ -79,11 +81,9 @@ def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
             for ext in valid_image_extensions:
                 img_files.extend(glob.glob(os.path.join(class_dir, f'*{ext}')))
             for img_file in img_files:
-                # Get the base name without extension
-                base_name = os.path.splitext(os.path.basename(img_file))[0]
                 # Construct the annotation file path with the appropriate extension
                 # Assuming annotations have a fixed extension, e.g., '.txt'
-                annot_file = os.path.join(annot_class_dir, f"{base_name}.txt")
+                annot_file = os.path.join(annot_class_dir, f"{img_file}.txt")
                 image_files.append(img_file)
                 annotation_files.append(annot_file)
         else:
@@ -97,6 +97,62 @@ def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
 
     return image_files, annotation_files
 
+
+# rs 
+# TODO: annotations files are not being found despite them being there --> in dir 
+def ground_truth_annotation(ground_truth_path):
+    """
+    Loads ground truth annotations from a .txt file in the specified format.
+
+    Args:
+        ground_truth_path (str): Path to the annotation .txt file.
+
+    Returns:
+        dict: Dictionary containing 'boxes' and 'labels'.
+    """
+    boxes = []
+    labels = []
+
+    try:
+        with open(ground_truth_path, 'r') as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print(f"Annotation file not found: {ground_truth_path}")
+        return {'boxes': np.array([]), 'labels': np.array([])}
+
+    # Skip the header line if it starts with '%'
+    start_line = 0
+    if lines[0].startswith('%'):
+        start_line = 1
+
+    # Process each annotation line
+    for line in lines[start_line:]:
+        parts = line.strip().split()
+        if len(parts) < 5:
+            continue  # Skip invalid lines
+
+        class_name = parts[0]
+        if class_name not in coco_mapping:
+            continue  # Skip classes not in the mapping
+
+        label_idx = coco_mapping[class_name]
+
+        # Parse bounding box coordinates
+        x = int(float(parts[1]))
+        y = int(float(parts[2]))
+        width = int(float(parts[3]))
+        height = int(float(parts[4]))
+
+        # Convert width and height to x2, y2
+        x1 = x
+        y1 = y
+        x2 = x + width
+        y2 = y + height
+
+        boxes.append([x1, y1, x2, y2])
+        labels.append(label_idx)
+
+    return {'boxes': np.array(boxes), 'labels': np.array(labels)}
 
 
 def histogram_equalization(low_light_image):
@@ -160,61 +216,6 @@ def clahe_enhancement(low_light_image):
     
     
     return final_img
-
-# rename sumbols 
-def ground_truth_annotation(ground_truth_path):
-    """
-    Loads ground truth annotations from a .txt file in the specified format.
-
-    Args:
-        ground_truth_path (str): Path to the annotation .txt file.
-
-    Returns:
-        dict: Dictionary containing 'boxes' and 'labels'.
-    """
-    boxes = []
-    labels = []
-
-    try:
-        with open(ground_truth_path, 'r') as f:
-            lines = f.readlines()
-    except FileNotFoundError:
-        print(f"Annotation file not found: {ground_truth_path}")
-        return {'boxes': np.array([]), 'labels': np.array([])}
-
-    # Skip the header line if it starts with '%'
-    start_line = 0
-    if lines[0].startswith('%'):
-        start_line = 1
-
-    # Process each annotation line
-    for line in lines[start_line:]:
-        parts = line.strip().split()
-        if len(parts) < 5:
-            continue  # Skip invalid lines
-
-        class_name = parts[0]
-        if class_name not in coco_mapping:
-            continue  # Skip classes not in the mapping
-
-        label_idx = coco_mapping[class_name]
-
-        # Parse bounding box coordinates
-        x = int(float(parts[1]))
-        y = int(float(parts[2]))
-        width = int(float(parts[3]))
-        height = int(float(parts[4]))
-
-        # Convert width and height to x2, y2
-        x1 = x
-        y1 = y
-        x2 = x + width
-        y2 = y + height
-
-        boxes.append([x1, y1, x2, y2])
-        labels.append(label_idx)
-
-    return {'boxes': np.array(boxes), 'labels': np.array(labels)}
 
 
 def detection_results_evaluation(model_detections, ground_truths, threshold=0.5):
@@ -458,8 +459,10 @@ def main():
     
     # collect our images and their annotations paths/ground truths 
     images, annotations = parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR)
+    # img = os.path.join('ExDark_Dataset/Bicycle/2015_00005.jpg')
     
-    # list to store metrics for each image enhancement technique 
+    # test = histogram_equalization(img)
+    # # list to store metrics for each image enhancement technique 
     og_metrics = []
     hist_metrics = []
     clahe_metrics = []
