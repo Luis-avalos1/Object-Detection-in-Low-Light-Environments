@@ -13,8 +13,8 @@ import xml.etree.ElementTree as element_tree
 
 
 """
-     - - - - - - - - [ DEFINING DATASET PATH ] - - -- - - --
-      
+    Defining our Dataset Paths 
+          
     we want to define a path for our dataset --> dataset should consist of low-light images with object
         :: --> should contains exdark classes in their own folders    
     define an output path for our results ---> enhanced images && detection results 
@@ -22,7 +22,6 @@ import xml.etree.ElementTree as element_tree
 DATASET_PATH_DIR = 'ExDark_Dataset'  
 GROUNDS_TRUTH_PATH_DIR = 'ground_truths'
 OUTPUT_PATH_DIR = 'enhanced_images' 
-
 
 
 # we are using the ExDark data set with contains its own classes 
@@ -47,28 +46,6 @@ coco_mapping = {
     # 'Others':  ignoring 
 }
 
-# our dataset seperates their images by classes so we need to iterate all these folders and get their annotations
-# create a list of the images we want and their annotations 
-images = []
-annotations = []
-
-# looping over class directories 
-for class_name in os.listdir(DATASET_PATH_DIR):
-    class_dir = os.path.join(DATASET_PATH_DIR, class_name)
-    # collect images in class dir 
-    if os.path.isdir(class_dir):
-        img_file = glob.glob(os.path.join(class_dir, '*.jpg'))
-        annot = [os.path.join(GROUNDS_TRUTH_PATH_DIR, f"{os.path.basename(f).replace('.jpg', '.xml')}") for f in img_file]
-        
-        # append 
-        images.extend(img_file)
-        annotations.extend(annot)
-
-
-print("size of images: ",  len(images))
-print("size of annot: ",  len(annotations))
-
-
 def model_initialization():
     """
         Model Initialization
@@ -79,6 +56,28 @@ def model_initialization():
     object_detection_model = torch.hub.load("ultralytics/yolov5", "yolov5s")
      
     return object_detection_model
+
+def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
+    # our dataset seperates their images by classes so we need to iterate all these folders and get their annotations
+    # create a list of the images we want and their annotations 
+    images = []
+    annotations = []
+
+    # looping over class directories 
+    for class_name in os.listdir(DATASET_PATH_DIR):
+        class_dir = os.path.join(DATASET_PATH_DIR, class_name)
+        # collect images in class dir 
+        if os.path.isdir(class_dir):
+            img_file = glob.glob(os.path.join(class_dir, '*.jpg'))
+            annot = [os.path.join(GROUNDS_TRUTH_PATH_DIR, f"{os.path.basename(f).replace('.jpg', '.xml')}") for f in img_file]
+            
+            # append 
+            images.extend(img_file)
+            annotations.extend(annot)
+
+
+    print("size of images: ",  len(images))
+    print("size of annot: ",  len(annotations))
 
 
 def histogram_equalization(low_light_image):
@@ -143,14 +142,6 @@ def clahe_enhancement(low_light_image):
     return final_img
 
 
-# def perform_object_detection(image):
-#     # method that performs object detection on an image usingn our pretrain YOLO model 
-#     # parameter: img in bgr 
-#     # returns detection results from our model 
-    
-#     res = object_detection_model(image)
-#     return res
-
 def ground_truth_annotation(ground_truth_path):
     """_summary_
 
@@ -186,12 +177,89 @@ def ground_truth_annotation(ground_truth_path):
     return {'boxes': np.array(boxes), 'labels': np.array(labels)}
 
 
-def detection_results(model_detections, ground_truths, threshold=0.5):
+def detection_results_evaluation(model_detections, ground_truths, threshold=0.5):
+    """
+        Method that evaluates the object detection model's results using precision, recall and average precision 
+
+    Args:
+        model_detections (list): a list of detection results from our YOLOv5 model 
+        ground_truths (list): a list of ground truths 
+        threshold (float, optional): IoU to consider a detection as a true positive, Defaults to 0.5.
+        
+    Returns: will return a tuple with precision array, recall array, and average precision score 
+    """
+    scores =[] # list to store our confindence score 
+    matches = [] # store our matches --> 1 == TP :: 0 == FP 
+    ground_truths_count = 0;
+     
+    #  iterate over our detectios and their ground truth annotatiosn
+    for detection, gt in zip(model_detections, ground_truths):
+        boxes_detection = detection['boxes']
+        scores_detection = detection['scores']
+        detection_labels = detection['labels']
+        boxes_ground_truth = gt['boxes']
+        labels_ground_truth = gt['labels']
+        
+        # update grounds truth counter 
+        ground_truths_count += len(boxes_ground_truth)
+        pair_matches = np.zeros(len(boxes_detection))
+        
+        for i, boxes_detection in enumerate(boxes_detection):
+            # no grounds truth left case
+            if len(boxes_ground_truth) == 0:
+                pair_matches[i] = 0
+                continue
+        
+            # compute the IoU between 'box' and gt boxes 
+            calc_iou = iou_computation(boxes_detection, boxes_ground_truth)
+            
+            # get the index of gt box with highes iou 
+            max_index = np.argmax(calc_iou)
+            max_i = calc_iou[max_index]
+            
+            if max_i >= threshold and detection_labels[i] == labels_ground_truth[max_index]:
+                # TP 
+                pair_matches[i] == 1
+                # remove the matches gt --> prevent duplicae matching
+                boxes_ground_truth = np.delete(boxes_ground_truth, max_index, axis=0)
+                labels_ground_truth = np.delete(labels_ground_truth, max_index, axis=0)
+            
+            # FP 
+            else:
+                pair_matches[i] == 0
+        
+        # append our detection scores and matches to list 
+        scores.extend(scores_detection)
+        matches.extend(pair_matches)
+
+    scores = np.array(scores)
+    matches = np.array(matches)
     
-    """
-
-    """
-
+    # no detection case 
+    if len(scores) == 0:
+        # no detection 
+        print("No Detections Made")
+        return np.array([]), np.array([]), 0.0
+    
+    # sort our detections in ascending order 
+    sorted_index = np.argsort(-scores)
+    scores = scores[sorted_index]
+    matches = matches[sorted_index]
+    
+    # compute cumulative tp and fp s 
+    all_matches = np.cumsum(all_matches)
+    all_fp = np.cumsum(1-all_matches)
+    
+    # calc precision and recall for each detection 
+    precision = all_matches / (all_matches + all_fp + 1e-6)
+    recall = all_matches / (ground_truths_count + 1e-6)
+    
+    # calv average precision 
+    average_precision = average_precision_score(matches, scores)
+    
+    return precision, recall, average_precision 
+            
+          
 def iou_computation(box, boxes):
     
     """
@@ -211,15 +279,51 @@ def iou_computation(box, boxes):
         
     """
     
+    # calc the coordingate of the intersection 
+    x1 = np.maximum(box[0], boxes[:, 0])
+    y1 = np.maximum(box[1], boxes[:, 1])
+    x2 = np.maximum(box[2], boxes[:, 2])
+    y2 = np.maximum(box[3], boxes[:, 3])
+    
+    # compute the area 
+    intersection = np.maximum(0, x2-x1) * np.maximum(0, y1, y2)
+    area_box = (box[2] - box[0]) *(box[3] - box[1])
+    area_boxes = (boxes[:,2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
+    
+    # union 
+    U = area_box + area_boxes - intersection
+    
+    # iou --> avoid divide by 0
+    iou = intersection / (U + 1e-6) 
+    
+    
+    return iou
+    
 
 def calculate_average_metrics(metrics):
     
     """
         Method the approximates the precision, recall, and average precision across our images to calculate the avg metrics for our entire dataset 
             --> By averaging our metrics we can gain an overview of the model's performance across our dataset 
-    
+
+        Args: metrics (list) : list of metrics dictionaries 
+        
+        Returns: returns a tuple --> Average precision , average recall and average ap 
     """
     
+    # empty
+    if len(metrics) == 0:
+        return 0.0, 0.0, 0.0
+
+    # compute the mean of the last precision, last recall value for each img 
+    avg_p = np.mean([m['precision'][-1] for m in metrics if len(m['precision'])>0])
+    avg_re = np.mean([m['recall'][-1] for m in metrics if len(m['recall'])>0])
+    
+    # calc mean of avergage precison scores
+    avg_ap = np.mean([m['ap'] for m in metrics])
+    
+    
+    return avg_p, avg_re, avg_ap
     
 def evaluate_object_detections(results):
     """
@@ -289,11 +393,15 @@ def object_detection( DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR, obj_detection_mo
     cl_detections = evaluate_object_detections(res_clahe)
     ret_detection = evaluate_object_detections(res_ret)
     
+    # ... more to do 
 
 
 def main():
-    """
-    """
+    # begin with initializing our YOLOv5 model 
+    yolov5 = model_initialization
+    
+    # collect our images and their annotations paths/ground truths 
+    images, annotations = parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR)
     
 
 
