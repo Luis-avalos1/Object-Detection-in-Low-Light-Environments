@@ -57,27 +57,46 @@ def model_initialization():
      
     return object_detection_model
 
+# rename symbols 
 def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
     # our dataset seperates their images by classes so we need to iterate all these folders and get their annotations
     # create a list of the images we want and their annotations 
-    images = []
-    annotations = []
+    image_files = []
+    annotation_files = []
 
-    # looping over class directories 
+    # Define valid image extensions
+    valid_image_extensions = ('.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.gif',
+                              '.JPG', '.JPEG', '.PNG', '.BMP', '.TIFF', '.TIF', '.GIF')
+
+    # Loop over each class directory in the dataset
     for class_name in os.listdir(DATASET_PATH_DIR):
         class_dir = os.path.join(DATASET_PATH_DIR, class_name)
-        # collect images in class dir 
-        if os.path.isdir(class_dir):
-            img_file = glob.glob(os.path.join(class_dir, '*.jpg'))
-            annot = [os.path.join(GROUNDS_TRUTH_PATH_DIR, f"{os.path.basename(f).replace('.jpg', '.xml')}") for f in img_file]
-            
-            # append 
-            images.extend(img_file)
-            annotations.extend(annot)
+        annot_class_dir = os.path.join(GROUNDS_TRUTH_PATH_DIR, class_name)
 
+        if os.path.isdir(class_dir) and os.path.isdir(annot_class_dir):
+            # Collect image files in the class directory
+            img_files = []
+            for ext in valid_image_extensions:
+                img_files.extend(glob.glob(os.path.join(class_dir, f'*{ext}')))
+            for img_file in img_files:
+                # Get the base name without extension
+                base_name = os.path.splitext(os.path.basename(img_file))[0]
+                # Construct the annotation file path with the appropriate extension
+                # Assuming annotations have a fixed extension, e.g., '.txt'
+                annot_file = os.path.join(annot_class_dir, f"{base_name}.txt")
+                image_files.append(img_file)
+                annotation_files.append(annot_file)
+        else:
+            if not os.path.isdir(class_dir):
+                print(f"Class directory not found in dataset: {class_dir}")
+            if not os.path.isdir(annot_class_dir):
+                print(f"Class directory not found in ground truths: {annot_class_dir}")
 
-    print("size of images: ",  len(images))
-    print("size of annot: ",  len(annotations))
+    print("Total images collected:", len(image_files))
+    print("Total annotations collected:", len(annotation_files))
+
+    return image_files, annotation_files
+
 
 
 def histogram_equalization(low_light_image):
@@ -97,7 +116,8 @@ def histogram_equalization(low_light_image):
     hq_image = cv2.merge((h,s,hist_eq))
     # merge to bgr 
     operated_image = cv2.cvtColor(hq_image, cv2.COLOR_HSV2BGR)
-    
+    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{low_light_image}_histEQ.jpg"), operated_image)
+
     # return our enhanced Image 
     return operated_image
 
@@ -141,39 +161,59 @@ def clahe_enhancement(low_light_image):
     
     return final_img
 
-
+# rename sumbols 
 def ground_truth_annotation(ground_truth_path):
-    """_summary_
-
-    loads our grounds truth from our dataset 
-    
-    Args:
-        ground_truth_path (str): path to annotations 
-
-    Returns: dictionary containing boxes and labels 
     """
-    
-    
-    tree = element_tree.parse(ground_truth_path)
-    root = tree.getroot()
+    Loads ground truth annotations from a .txt file in the specified format.
+
+    Args:
+        ground_truth_path (str): Path to the annotation .txt file.
+
+    Returns:
+        dict: Dictionary containing 'boxes' and 'labels'.
+    """
     boxes = []
     labels = []
-    
-    for object in root.findall('object'):
-        lbl = object.find('name').text
-        
-        if lbl not in coco_mapping:
-            continue
-            
-        idx = coco_mapping[lbl]
-        bbox = object.find('bndbox')
-        x1 = int(float(bbox.find('xmin').text))
-        y1 = int(float(bbox.find('ymin').text))
-        x2 = int(float(bbox.find('xmax').text))
-        y2 = int(float(bbox.find('ymax').text))
+
+    try:
+        with open(ground_truth_path, 'r') as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print(f"Annotation file not found: {ground_truth_path}")
+        return {'boxes': np.array([]), 'labels': np.array([])}
+
+    # Skip the header line if it starts with '%'
+    start_line = 0
+    if lines[0].startswith('%'):
+        start_line = 1
+
+    # Process each annotation line
+    for line in lines[start_line:]:
+        parts = line.strip().split()
+        if len(parts) < 5:
+            continue  # Skip invalid lines
+
+        class_name = parts[0]
+        if class_name not in coco_mapping:
+            continue  # Skip classes not in the mapping
+
+        label_idx = coco_mapping[class_name]
+
+        # Parse bounding box coordinates
+        x = int(float(parts[1]))
+        y = int(float(parts[2]))
+        width = int(float(parts[3]))
+        height = int(float(parts[4]))
+
+        # Convert width and height to x2, y2
+        x1 = x
+        y1 = y
+        x2 = x + width
+        y2 = y + height
+
         boxes.append([x1, y1, x2, y2])
-        labels.append(idx)
-        
+        labels.append(label_idx)
+
     return {'boxes': np.array(boxes), 'labels': np.array(labels)}
 
 
@@ -381,11 +421,11 @@ def object_detection( DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR, obj_detection_mo
     # perform object detetion on image enhacements 
     histeq_image = histogram_equalization(image)
     clahe_image = clahe_enhancement(image)
-    single_ret = single_scale_ret(image)
+    single_ret_image = single_scale_ret(image)
     
     res_histeq = obj_detection_model(histeq_image)
     res_clahe = obj_detection_model(clahe_image)
-    res_ret = obj_detection_model(single_ret)
+    res_ret = obj_detection_model(single_ret_image)
     
     # evaluate detections made from model
     og_detections = evaluate_object_detections(results_original)
@@ -393,8 +433,24 @@ def object_detection( DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR, obj_detection_mo
     cl_detections = evaluate_object_detections(res_clahe)
     ret_detection = evaluate_object_detections(res_ret)
     
-    # ... more to do 
-
+    # metrics: evaluate detections againast our ground truths 
+    og_precision, og_recall, og_ap = calculate_average_metrics(og_detections, truths)
+    histo_precision, histo_recall, histo_ap = calculate_average_metrics(hq_detection, truths)
+    clahe_precision, clahe_recall, clahe_ap = calculate_average_metrics(cl_detections, truths)
+    ret_precision, ret_recall, ret_ap = calculate_average_metrics(ret_detection, truths)
+    
+    #  store the metics in the list --> from parameters 
+    og_metrics.append({'precision': og_precision, 'recall':og_recall, 'ap': og_ap})
+    histeq_metrics.append({'precision': histo_precision, 'recall': histo_recall, 'ap': histo_ap})
+    clahe_metrics.append({'precision': clahe_precision, 'recall': clahe_recall, 'ap': clahe_ap})
+    retinex_metrics.append(({'precision': ret_precision, 'recall': ret_recall, 'ap': ret_ap}))
+    
+    # save to dir 
+    filename = os.path.splitext(os.path.basename(DATASET_PATH_DIR))[0]
+    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_histEQ.jpg"), histeq_image)
+    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_clahe.jpg"), clahe_image)
+    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_histEQ.jpg"), single_ret_image)
+    
 
 def main():
     # begin with initializing our YOLOv5 model 
@@ -403,8 +459,31 @@ def main():
     # collect our images and their annotations paths/ground truths 
     images, annotations = parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR)
     
+    # list to store metrics for each image enhancement technique 
+    og_metrics = []
+    hist_metrics = []
+    clahe_metrics = []
+    ret_metrics = []
+    
+    # for loop --> calling object_detection()
+    for image_path, annot_path in tqdm(zip(images,annotations), total=len(images), desc="YOLOv5 Processing Images"):
+        object_detection(image_path, annot_path, yolov5, og_metrics, hist_metrics, clahe_metrics, ret_metrics)
+    
+    # compute avg metrics 
+    og_avg_prec, og_avg_recall, og_avg_ap = calculate_average_metrics(og_metrics)
+    hq_avg_prec, hq_avg_recall, hq_avg_ap = calculate_average_metrics(hist_metrics)
+    cl_avg_prec, cl_avg_recall, cl_avg_ap = calculate_average_metrics(clahe_metrics)
+    re_avg_prec, re_avg_recall, re_avg_ap = calculate_average_metrics(ret_metrics)
 
-
+    
+    # display results 
+    print("\nEvaluation Results")
+    print(f"\nOriginal Images \nPrecision: {og_avg_prec:.4f}, \nRecall: {og_avg_recall:.4f}, \nAP: {og_avg_ap:.4f}")
+    print(f"\nImages Enhanced with Histogram Equalization \nPrecision: {hq_avg_prec:.4f}, \nRecall: {hq_avg_recall:.4f}, \nAP: {hq_avg_ap:.4f}")
+    print(f"\nImages Enhanced with CLAHE \nPrecision: {cl_avg_prec:.4f}, \nRecall: {cl_avg_recall:.4f}, \nAP: {cl_avg_ap:.4f}")
+    print(f"\nImages Enhanced \nPrecision: {re_avg_prec:.4f}, \nRecall: {re_avg_recall:.4f}, \nAP: {re_avg_ap:.4f}")
+    
+    
 if __name__ == "__main__":
     main()
     
