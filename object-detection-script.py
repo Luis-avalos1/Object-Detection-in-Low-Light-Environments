@@ -63,36 +63,51 @@ def model_initialization():
 def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
     # our dataset seperates their images by classes so we need to iterate all these folders and get their annotations
     # create a list of the images we want and their annotations 
+     # Create lists to store image and annotation file paths
     image_files = []
     annotation_files = []
 
-    # Define valid image extensions
-    valid_image_extensions = ('.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.gif',
-                              '.JPG', '.JPEG', '.PNG', '.BMP', '.TIFF', '.TIF', '.GIF')
+    # Valid image extensions
+    valid_image_extensions = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.gif'}
 
-    # Loop over each class directory in the dataset
+    # Loop through each class directory in the dataset
     for class_name in os.listdir(DATASET_PATH_DIR):
         class_dir = os.path.join(DATASET_PATH_DIR, class_name)
         annot_class_dir = os.path.join(GROUNDS_TRUTH_PATH_DIR, class_name)
 
+        print(f"\nProcessing class: {class_name}")
+        print(f"Image directory: {class_dir}")
+        print(f"Annotation directory: {annot_class_dir}")
+
+        # Ensure both directories exist
         if os.path.isdir(class_dir) and os.path.isdir(annot_class_dir):
-            # Collect image files in the class directory
-            img_files = []
-            for ext in valid_image_extensions:
-                img_files.extend(glob.glob(os.path.join(class_dir, f'*{ext}')))
-            for img_file in img_files:
-                # Construct the annotation file path with the appropriate extension
-                # Assuming annotations have a fixed extension, e.g., '.txt'
-                annot_file = os.path.join(annot_class_dir, f"{img_file}.txt")
-                image_files.append(img_file)
-                annotation_files.append(annot_file)
+            # Process each image in the class directory
+            for image_filename in os.listdir(class_dir):
+                file_ext = os.path.splitext(image_filename)[1].lower()
+
+                # Check if file is an image
+                if file_ext in valid_image_extensions:
+                    img_file = os.path.join(class_dir, image_filename)
+
+                    # Construct corresponding annotation filename by replacing image extension with .txt
+                    annotation_filename = os.path.splitext(image_filename)[0] + '.txt'
+                    annot_file = os.path.join(annot_class_dir, annotation_filename)
+
+                    # Verify if the annotation file exists
+                    if os.path.exists(annot_file):
+                        image_files.append(img_file)
+                        annotation_files.append(annot_file)
+                    else:
+                        print(f"Annotation file not found for image: {img_file}")
+                else:
+                    print(f"Skipped file with unsupported extension: {image_filename}")
         else:
             if not os.path.isdir(class_dir):
                 print(f"Class directory not found in dataset: {class_dir}")
             if not os.path.isdir(annot_class_dir):
                 print(f"Class directory not found in ground truths: {annot_class_dir}")
 
-    print("Total images collected:", len(image_files))
+    print("\nTotal images collected:", len(image_files))
     print("Total annotations collected:", len(annotation_files))
 
     return image_files, annotation_files
@@ -118,6 +133,9 @@ def ground_truth_annotation(ground_truth_path):
             lines = f.readlines()
     except FileNotFoundError:
         print(f"Annotation file not found: {ground_truth_path}")
+        return {'boxes': np.array([]), 'labels': np.array([])}
+    except UnicodeDecodeError:
+        print(f"Could not decode annotation file: {ground_truth_path}")
         return {'boxes': np.array([]), 'labels': np.array([])}
 
     # Skip the header line if it starts with '%'
@@ -183,7 +201,7 @@ def single_scale_ret(low_light_image, sigma=15):
     # returns enhanced img in bgr 
     
     # convert our img to float +1 --> to avoing log(0)
-    flt = low_light_image.astype(np.floa32) + 1.0
+    flt = low_light_image.astype(np.float32) + 1.0
     # take the log of float 
     log = np.log(flt)
     # apply gaussian blur and take the log 
@@ -455,7 +473,7 @@ def object_detection( DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR, obj_detection_mo
 
 def main():
     # begin with initializing our YOLOv5 model 
-    yolov5 = model_initialization
+    yolov5 = model_initialization()
     
     # collect our images and their annotations paths/ground truths 
     images, annotations = parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR)
