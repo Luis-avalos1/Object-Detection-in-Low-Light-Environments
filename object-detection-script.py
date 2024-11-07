@@ -11,6 +11,8 @@ import json
 import glob
 import xml.etree.ElementTree as element_tree
 
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 """
     Defining our Dataset Paths 
@@ -52,8 +54,13 @@ def model_initialization():
         
            --> define our object detection model --> using YOLO 
                we will use a small pretrained model from ultralytics
+               
+        currently running too slow on cpu --> lets make if available , use GPU 
     """
-    object_detection_model = torch.hub.load("ultralytics/yolov5", "yolov5s")
+    configure_devie = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f"Using Device {configure_devie}")
+    
+    object_detection_model = torch.hub.load("ultralytics/yolov5", "yolov5s").to(configure_devie)
      
     return object_detection_model
 
@@ -67,31 +74,32 @@ def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
     image_files = []
     annotation_files = []
 
-    # Valid image extensions
-    valid_image_extensions = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.gif'}
+    # defining extension our imgs in our dataset can have --> there is ~7400 img, so if there is any that arent .png they will be handled
+    img_extension = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.gif'}
 
     # Loop through each class directory in the dataset
-    for class_name in os.listdir(DATASET_PATH_DIR):
-        class_dir = os.path.join(DATASET_PATH_DIR, class_name)
-        annot_class_dir = os.path.join(GROUNDS_TRUTH_PATH_DIR, class_name)
+    for current_class_name in os.listdir(DATASET_PATH_DIR):
+        
+        current_class_diretory = os.path.join(DATASET_PATH_DIR, current_class_name)
+        current_annotation_dir = os.path.join(GROUNDS_TRUTH_PATH_DIR, current_class_name)
 
-        print(f"\nProcessing class: {class_name}")
-        print(f"Image directory: {class_dir}")
-        print(f"Annotation directory: {annot_class_dir}")
+        print(f"\nProcessing class: {current_class_name}")
+        print(f"Image directory: {current_class_diretory}")
+        print(f"Annotation directory: {current_annotation_dir}")
 
         # Ensure both directories exist
-        if os.path.isdir(class_dir) and os.path.isdir(annot_class_dir):
+        if os.path.isdir(current_class_diretory) and os.path.isdir(current_annotation_dir):
             # Process each image in the class directory
-            for image_filename in os.listdir(class_dir):
+            for image_filename in os.listdir(current_class_diretory):
                 file_ext = os.path.splitext(image_filename)[1].lower()
 
                 # Check if file is an image
-                if file_ext in valid_image_extensions:
-                    img_file = os.path.join(class_dir, image_filename)
+                if file_ext in img_extension:
+                    img_file = os.path.join(current_class_diretory, image_filename)
 
                     # Construct corresponding annotation filename by replacing image extension with .txt
                     annotation_filename = os.path.splitext(image_filename)[0] + '.txt'
-                    annot_file = os.path.join(annot_class_dir, annotation_filename)
+                    annot_file = os.path.join(current_annotation_dir, annotation_filename)
 
                     # Verify if the annotation file exists
                     if os.path.exists(annot_file):
@@ -102,10 +110,10 @@ def parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR):
                 else:
                     print(f"Skipped file with unsupported extension: {image_filename}")
         else:
-            if not os.path.isdir(class_dir):
-                print(f"Class directory not found in dataset: {class_dir}")
-            if not os.path.isdir(annot_class_dir):
-                print(f"Class directory not found in ground truths: {annot_class_dir}")
+            if not os.path.isdir(current_class_diretory):
+                print(f"Class directory not found in dataset: {current_class_diretory}")
+            if not os.path.isdir(current_annotation_dir):
+                print(f"Class directory not found in ground truths: {current_annotation_dir}")
 
     print("\nTotal images collected:", len(image_files))
     print("Total annotations collected:", len(annotation_files))
@@ -190,7 +198,6 @@ def histogram_equalization(low_light_image):
     hq_image = cv2.merge((h,s,hist_eq))
     # merge to bgr 
     operated_image = cv2.cvtColor(hq_image, cv2.COLOR_HSV2BGR)
-    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{low_light_image}_histEQ.jpg"), operated_image)
 
     # return our enhanced Image 
     return operated_image
@@ -247,76 +254,80 @@ def detection_results_evaluation(model_detections, ground_truths, threshold=0.5)
         
     Returns: will return a tuple with precision array, recall array, and average precision score 
     """
-    scores =[] # list to store our confindence score 
-    matches = [] # store our matches --> 1 == TP :: 0 == FP 
-    ground_truths_count = 0;
-     
-    #  iterate over our detectios and their ground truth annotatiosn
+    scores = []  # List to store confidence scores
+    matches = []  # Store matches --> 1 == TP, 0 == FP
+    ground_truths_count = 0
+
+    # Flag to indicate if any detections were made
+    detections_made = False
+
+    # Iterate over detections and ground truth annotations
     for detection, gt in zip(model_detections, ground_truths):
         boxes_detection = detection['boxes']
         scores_detection = detection['scores']
         detection_labels = detection['labels']
         boxes_ground_truth = gt['boxes']
         labels_ground_truth = gt['labels']
-        
-        # update grounds truth counter 
+
+        # Update ground truth counter
         ground_truths_count += len(boxes_ground_truth)
         pair_matches = np.zeros(len(boxes_detection))
-        
-        for i, boxes_detection in enumerate(boxes_detection):
-            # no grounds truth left case
+
+        if len(boxes_detection) > 0:
+            detections_made = True  # Detections were made in this image
+
+        for i, box_detection in enumerate(boxes_detection):
+            # No ground truths left to match
             if len(boxes_ground_truth) == 0:
                 pair_matches[i] = 0
                 continue
-        
-            # compute the IoU between 'box' and gt boxes 
-            calc_iou = iou_computation(boxes_detection, boxes_ground_truth)
-            
-            # get the index of gt box with highes iou 
+
+            # Compute IoU between detection and ground truth boxes
+            calc_iou = iou_computation(box_detection, boxes_ground_truth)
+
+            # Get the index of the ground truth box with highest IoU
             max_index = np.argmax(calc_iou)
             max_i = calc_iou[max_index]
-            
+
             if max_i >= threshold and detection_labels[i] == labels_ground_truth[max_index]:
-                # TP 
-                pair_matches[i] == 1
-                # remove the matches gt --> prevent duplicae matching
+                # True Positive
+                pair_matches[i] = 1
+                # Remove matched ground truth to prevent duplicate matching
                 boxes_ground_truth = np.delete(boxes_ground_truth, max_index, axis=0)
                 labels_ground_truth = np.delete(labels_ground_truth, max_index, axis=0)
-            
-            # FP 
             else:
-                pair_matches[i] == 0
-        
-        # append our detection scores and matches to list 
+                # False Positive
+                pair_matches[i] = 0
+
+        # Append detection scores and matches to lists
         scores.extend(scores_detection)
         matches.extend(pair_matches)
 
     scores = np.array(scores)
     matches = np.array(matches)
-    
-    # no detection case 
+
+    # No detection case
     if len(scores) == 0:
-        # no detection 
-        print("No Detections Made")
-        return np.array([]), np.array([]), 0.0
-    
-    # sort our detections in ascending order 
+        # Do not print "No Detections Made"
+        return np.array([]), np.array([]), 0.0, False
+
+    # Sort detections in descending order
     sorted_index = np.argsort(-scores)
     scores = scores[sorted_index]
     matches = matches[sorted_index]
-    
-    # compute cumulative tp and fp s 
-    all_matches = np.cumsum(all_matches)
-    all_fp = np.cumsum(1-all_matches)
-    
-    # calc precision and recall for each detection 
+
+    # Compute cumulative true positives and false positives
+    all_matches = np.cumsum(matches)
+    all_fp = np.cumsum(1 - matches)
+
+    # Calculate precision and recall for each detection
     precision = all_matches / (all_matches + all_fp + 1e-6)
     recall = all_matches / (ground_truths_count + 1e-6)
-    
-    # calv average precision 
+
+    # Calculate average precision
     average_precision = average_precision_score(matches, scores)
-    
-    return precision, recall, average_precision 
+
+    return precision, recall, average_precision, detections_made
             
           
 def iou_computation(box, boxes):
@@ -338,24 +349,25 @@ def iou_computation(box, boxes):
         
     """
     
-    # calc the coordingate of the intersection 
+      # Calculate the coordinates of the intersection rectangle
     x1 = np.maximum(box[0], boxes[:, 0])
     y1 = np.maximum(box[1], boxes[:, 1])
-    x2 = np.maximum(box[2], boxes[:, 2])
-    y2 = np.maximum(box[3], boxes[:, 3])
-    
-    # compute the area 
-    intersection = np.maximum(0, x2-x1) * np.maximum(0, y1, y2)
-    area_box = (box[2] - box[0]) *(box[3] - box[1])
-    area_boxes = (boxes[:,2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
-    
-    # union 
-    U = area_box + area_boxes - intersection
-    
-    # iou --> avoid divide by 0
-    iou = intersection / (U + 1e-6) 
-    
-    
+    x2 = np.minimum(box[2], boxes[:, 2])  # Use np.minimum
+    y2 = np.minimum(box[3], boxes[:, 3])  # Use np.minimum
+
+    # Compute the area of intersection rectangle
+    intersection = np.maximum(0, x2 - x1) * np.maximum(0, y2 - y1)
+
+    # Compute the area of both the prediction and ground truth rectangles
+    area_box = (box[2] - box[0]) * (box[3] - box[1])
+    area_boxes = (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1])
+
+    # Compute the union area
+    union = area_box + area_boxes - intersection + 1e-6  # Avoid division by zero
+
+    # Compute the IoU
+    iou = intersection / union
+
     return iou
     
 
@@ -391,119 +403,145 @@ def evaluate_object_detections(results):
     Args:
         results (YOLO Results): detection results from YOLO model
     """
-    detect = []
-    
+    detections = []
+
     for res in results.xyxy:
+        boxes = []
+        scores = []
+        labels = []
         for *box, score, cls in res.cpu().numpy():
-            detect.append({
-                'boxes': np.array([[box[0], box[1], box[2], box[3]]]), 
-                'scores': np.array([score]), 
-                'labels': np.array([int(cls)])
-            })
-    
-    return detect
+            boxes.append(box)
+            scores.append(score)
+            labels.append(int(cls))
+        detection = {
+            'boxes': np.array(boxes),
+            'scores': np.array(scores),
+            'labels': np.array(labels)
+        }
+        detections.append(detection)
+
+    return detections
     
 
-def object_detection( DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR, obj_detection_model, og_metrics, histeq_metrics, clahe_metrics, retinex_metrics ): 
-    """
-    Methods the performs object detection on the original image, then on our enhacned images
-        --> then it evaluates detections, and stores their metrics for comparison
-
-    Args:
-        DATASET_PATH_DIR (string): path to our dataset images 
-        GROUNDS_TRUTH_PATH_DIR (string): path to our annotations for our images in dataset
-        obj_detection_model (torch.hub.loader): our obj detection model --> loaded YOLOv5 model
-        og_metrics (list): list to store metrics of og results with no enhancements
-        histeq_metrics (list): metrics of hist eq rseults
-        clahe_metrics (list): metrics of clahe results
-        retinex_metrics (list): metrics of retinex results
-    
-    """
-    # load our single img 
-    image = cv2.imread(DATASET_PATH_DIR)
+def object_detection(image_path, annot_path, obj_detection_model, og_metrics, histeq_metrics, clahe_metrics, retinex_metrics, detection_counts):
+    # Load the image
+    image = cv2.imread(image_path)
     
     if image is None:
-        print(f"Failed to load {DATASET_PATH_DIR}")
+        print(f"Failed to load {image_path}")
         return
     
-    # load the ground truth for this image 
-    ground_truth = ground_truth_annotation(GROUNDS_TRUTH_PATH_DIR)
+    # Convert BGR to RGB
+    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    
+    # Load the ground truth for this image
+    ground_truth = ground_truth_annotation(annot_path)
     truths = [ground_truth]
     
-    #skip images without annotation
+    # Skip images without annotations
     if len(truths[0]['boxes']) == 0:
         return
     
-    # perform object detection on the original image with no image enhancement
-    results_original = obj_detection_model(image)
+    # Perform object detection on the original image
+    results_original = obj_detection_model(image_rgb)
     
-    # perform object detetion on image enhacements 
+    # Perform image enhancements
     histeq_image = histogram_equalization(image)
     clahe_image = clahe_enhancement(image)
     single_ret_image = single_scale_ret(image)
     
-    res_histeq = obj_detection_model(histeq_image)
-    res_clahe = obj_detection_model(clahe_image)
-    res_ret = obj_detection_model(single_ret_image)
+    # Convert enhanced images to RGB
+    histeq_image_rgb = cv2.cvtColor(histeq_image, cv2.COLOR_BGR2RGB)
+    clahe_image_rgb = cv2.cvtColor(clahe_image, cv2.COLOR_BGR2RGB)
+    single_ret_image_rgb = cv2.cvtColor(single_ret_image, cv2.COLOR_BGR2RGB)
     
-    # evaluate detections made from model
+    # Perform object detection on enhanced images
+    res_histeq = obj_detection_model(histeq_image_rgb)
+    res_clahe = obj_detection_model(clahe_image_rgb)
+    res_ret = obj_detection_model(single_ret_image_rgb)
+    
+    # Evaluate detections made from the model
     og_detections = evaluate_object_detections(results_original)
-    hq_detection = evaluate_object_detections(res_histeq)
+    hq_detections = evaluate_object_detections(res_histeq)
     cl_detections = evaluate_object_detections(res_clahe)
-    ret_detection = evaluate_object_detections(res_ret)
+    ret_detections = evaluate_object_detections(res_ret)
     
-    # metrics: evaluate detections againast our ground truths 
-    og_precision, og_recall, og_ap = calculate_average_metrics(og_detections, truths)
-    histo_precision, histo_recall, histo_ap = calculate_average_metrics(hq_detection, truths)
-    clahe_precision, clahe_recall, clahe_ap = calculate_average_metrics(cl_detections, truths)
-    ret_precision, ret_recall, ret_ap = calculate_average_metrics(ret_detection, truths)
+    # Metrics: evaluate detections against ground truths
+    og_precision, og_recall, og_ap, og_detections_made = detection_results_evaluation(og_detections, truths)
+    histo_precision, histo_recall, histo_ap, histo_detections_made = detection_results_evaluation(hq_detections, truths)
+    clahe_precision, clahe_recall, clahe_ap, clahe_detections_made = detection_results_evaluation(cl_detections, truths)
+    ret_precision, ret_recall, ret_ap, ret_detections_made = detection_results_evaluation(ret_detections, truths)
     
-    #  store the metics in the list --> from parameters 
-    og_metrics.append({'precision': og_precision, 'recall':og_recall, 'ap': og_ap})
+    # Store the metrics in the list
+    og_metrics.append({'precision': og_precision, 'recall': og_recall, 'ap': og_ap})
     histeq_metrics.append({'precision': histo_precision, 'recall': histo_recall, 'ap': histo_ap})
     clahe_metrics.append({'precision': clahe_precision, 'recall': clahe_recall, 'ap': clahe_ap})
-    retinex_metrics.append(({'precision': ret_precision, 'recall': ret_recall, 'ap': ret_ap}))
+    retinex_metrics.append({'precision': ret_precision, 'recall': ret_recall, 'ap': ret_ap})
     
-    # save to dir 
-    filename = os.path.splitext(os.path.basename(DATASET_PATH_DIR))[0]
+    # Update detection counts
+    detection_counts['original']['detections_made'] += int(og_detections_made)
+    detection_counts['original']['no_detections'] += int(not og_detections_made)
+    detection_counts['histeq']['detections_made'] += int(histo_detections_made)
+    detection_counts['histeq']['no_detections'] += int(not histo_detections_made)
+    detection_counts['clahe']['detections_made'] += int(clahe_detections_made)
+    detection_counts['clahe']['no_detections'] += int(not clahe_detections_made)
+    detection_counts['retinex']['detections_made'] += int(ret_detections_made)
+    detection_counts['retinex']['no_detections'] += int(not ret_detections_made)
+    
+    # Save enhanced images
+    filename = os.path.splitext(os.path.basename(image_path))[0]
     cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_histEQ.jpg"), histeq_image)
     cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_clahe.jpg"), clahe_image)
-    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_histEQ.jpg"), single_ret_image)
+    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_retinex.jpg"), single_ret_image)
+
     
 
 def main():
-    # begin with initializing our YOLOv5 model 
+    # Initialize the YOLOv5 model
     yolov5 = model_initialization()
     
-    # collect our images and their annotations paths/ground truths 
+    # Collect images and their annotation paths
     images, annotations = parse_images_and_annotations(DATASET_PATH_DIR, GROUNDS_TRUTH_PATH_DIR)
-    # img = os.path.join('ExDark_Dataset/Bicycle/2015_00005.jpg')
     
-    # test = histogram_equalization(img)
-    # # list to store metrics for each image enhancement technique 
+    # Create lists to store metrics for each image enhancement technique
     og_metrics = []
     hist_metrics = []
     clahe_metrics = []
     ret_metrics = []
     
-    # for loop --> calling object_detection()
-    for image_path, annot_path in tqdm(zip(images,annotations), total=len(images), desc="YOLOv5 Processing Images"):
-        object_detection(image_path, annot_path, yolov5, og_metrics, hist_metrics, clahe_metrics, ret_metrics)
+    # Initialize detection counts
+    detection_counts = {
+        'original': {'detections_made': 0, 'no_detections': 0},
+        'histeq': {'detections_made': 0, 'no_detections': 0},
+        'clahe': {'detections_made': 0, 'no_detections': 0},
+        'retinex': {'detections_made': 0, 'no_detections': 0},
+    }
     
-    # compute avg metrics 
+    # For loop calling object_detection()
+    for image_path, annot_path in tqdm(zip(images, annotations), total=len(images), desc="YOLOv5 Processing Images"):
+        object_detection(image_path, annot_path, yolov5, og_metrics, hist_metrics, clahe_metrics, ret_metrics, detection_counts)
+    
+    # Compute average metrics
     og_avg_prec, og_avg_recall, og_avg_ap = calculate_average_metrics(og_metrics)
     hq_avg_prec, hq_avg_recall, hq_avg_ap = calculate_average_metrics(hist_metrics)
     cl_avg_prec, cl_avg_recall, cl_avg_ap = calculate_average_metrics(clahe_metrics)
     re_avg_prec, re_avg_recall, re_avg_ap = calculate_average_metrics(ret_metrics)
-
     
-    # display results 
+    # Display results
     print("\nEvaluation Results")
     print(f"\nOriginal Images \nPrecision: {og_avg_prec:.4f}, \nRecall: {og_avg_recall:.4f}, \nAP: {og_avg_ap:.4f}")
     print(f"\nImages Enhanced with Histogram Equalization \nPrecision: {hq_avg_prec:.4f}, \nRecall: {hq_avg_recall:.4f}, \nAP: {hq_avg_ap:.4f}")
     print(f"\nImages Enhanced with CLAHE \nPrecision: {cl_avg_prec:.4f}, \nRecall: {cl_avg_recall:.4f}, \nAP: {cl_avg_ap:.4f}")
-    print(f"\nImages Enhanced \nPrecision: {re_avg_prec:.4f}, \nRecall: {re_avg_recall:.4f}, \nAP: {re_avg_ap:.4f}")
+    print(f"\nImages Enhanced with Retinex \nPrecision: {re_avg_prec:.4f}, \nRecall: {re_avg_recall:.4f}, \nAP: {re_avg_ap:.4f}")
     
+    # Display detection counts
+    print("\nDetection Counts:")
+    for key in detection_counts:
+        total_images = detection_counts[key]['detections_made'] + detection_counts[key]['no_detections']
+        print(f"{key.capitalize()} Images:")
+        print(f"  Detections Made: {detection_counts[key]['detections_made']} out of {total_images}")
+        print(f"  No Detections: {detection_counts[key]['no_detections']} out of {total_images}")
+
     
 if __name__ == "__main__":
     main()
