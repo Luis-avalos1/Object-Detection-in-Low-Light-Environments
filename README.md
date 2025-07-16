@@ -2,6 +2,7 @@
 
 A comprehensive research project that evaluates and compares object detection performance in low-light conditions using various image enhancement techniques and the YOLOv5 model.
 
+ --> WORK IN PROGRESS <--
 ## 🔍 Overview
 
 This project investigates how different image enhancement methods can improve object detection accuracy in challenging low-light environments. We compare the performance of several enhancement techniques including histogram equalization, CLAHE, Retinex, gamma correction, and brightness/contrast adjustment on the ExDark dataset.
