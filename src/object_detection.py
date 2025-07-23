@@ -242,6 +242,53 @@ def clahe_enhancement(low_light_image):
     
     return final_img
 
+def multi_scale_retinex(image, scales=[15, 80, 250], weights=[1/3, 1/3, 1/3]):
+    """
+    Apply Multi-Scale Retinex (MSR) algorithm for image enhancement.
+    
+    MSR combines multiple single-scale Retinex operations to achieve better
+    illumination normalization and color constancy across different scales.
+
+    Args:
+        image (np.array): Input BGR image.
+        scales (list): List of sigma values for Gaussian blur at different scales.
+        weights (list): Corresponding weights for each scale.
+
+    Returns:
+        np.array: Multi-scale Retinex enhanced BGR image.
+    """
+    if len(scales) != len(weights):
+        raise ValueError("Number of scales must match number of weights")
+    
+    # Ensure weights sum to 1
+    weights = np.array(weights)
+    weights = weights / np.sum(weights)
+    
+    # Convert to float and add small value to avoid log(0)  
+    img_float = image.astype(np.float32) + 1.0
+    log_img = np.log(img_float)
+    
+    # Initialize MSR output
+    msr_output = np.zeros_like(log_img)
+    
+    # Apply Retinex at multiple scales
+    for scale, weight in zip(scales, weights):
+        # Gaussian blur at current scale
+        blurred = cv2.GaussianBlur(img_float, (0, 0), sigmaX=scale)
+        log_blurred = np.log(blurred)
+        
+        # Single Scale Retinex at this scale
+        ssr = log_img - log_blurred
+        
+        # Add weighted contribution to MSR output
+        msr_output += weight * ssr
+    
+    # Normalize to [0, 255] range
+    msr_output = cv2.normalize(msr_output, None, 0, 255, cv2.NORM_MINMAX)
+    msr_output = msr_output.astype(np.uint8)
+    
+    return msr_output
+
 
 def detection_results_evaluation(model_detections, ground_truths, threshold=0.5):
     """
@@ -423,7 +470,7 @@ def evaluate_object_detections(results):
     return detections
     
 
-def object_detection(image_path, annot_path, obj_detection_model, og_metrics, histeq_metrics, clahe_metrics, retinex_metrics, detection_counts):
+def object_detection(image_path, annot_path, obj_detection_model, og_metrics, histeq_metrics, clahe_metrics, retinex_metrics, msr_metrics, detection_counts):
     # Load the image
     image = cv2.imread(image_path)
     
@@ -449,34 +496,40 @@ def object_detection(image_path, annot_path, obj_detection_model, og_metrics, hi
     histeq_image = histogram_equalization(image)
     clahe_image = clahe_enhancement(image)
     single_ret_image = single_scale_ret(image)
+    msr_image = multi_scale_retinex(image)
     
     # Convert enhanced images to RGB
     histeq_image_rgb = cv2.cvtColor(histeq_image, cv2.COLOR_BGR2RGB)
     clahe_image_rgb = cv2.cvtColor(clahe_image, cv2.COLOR_BGR2RGB)
     single_ret_image_rgb = cv2.cvtColor(single_ret_image, cv2.COLOR_BGR2RGB)
+    msr_image_rgb = cv2.cvtColor(msr_image, cv2.COLOR_BGR2RGB)
     
     # Perform object detection on enhanced images
     res_histeq = obj_detection_model(histeq_image_rgb)
     res_clahe = obj_detection_model(clahe_image_rgb)
     res_ret = obj_detection_model(single_ret_image_rgb)
+    res_msr = obj_detection_model(msr_image_rgb)
     
     # Evaluate detections made from the model
     og_detections = evaluate_object_detections(results_original)
     hq_detections = evaluate_object_detections(res_histeq)
     cl_detections = evaluate_object_detections(res_clahe)
     ret_detections = evaluate_object_detections(res_ret)
+    msr_detections = evaluate_object_detections(res_msr)
     
     # Metrics: evaluate detections against ground truths
     og_precision, og_recall, og_ap, og_detections_made = detection_results_evaluation(og_detections, truths)
     histo_precision, histo_recall, histo_ap, histo_detections_made = detection_results_evaluation(hq_detections, truths)
     clahe_precision, clahe_recall, clahe_ap, clahe_detections_made = detection_results_evaluation(cl_detections, truths)
     ret_precision, ret_recall, ret_ap, ret_detections_made = detection_results_evaluation(ret_detections, truths)
+    msr_precision, msr_recall, msr_ap, msr_detections_made = detection_results_evaluation(msr_detections, truths)
     
     # Store the metrics in the list
     og_metrics.append({'precision': og_precision, 'recall': og_recall, 'ap': og_ap})
     histeq_metrics.append({'precision': histo_precision, 'recall': histo_recall, 'ap': histo_ap})
     clahe_metrics.append({'precision': clahe_precision, 'recall': clahe_recall, 'ap': clahe_ap})
     retinex_metrics.append({'precision': ret_precision, 'recall': ret_recall, 'ap': ret_ap})
+    msr_metrics.append({'precision': msr_precision, 'recall': msr_recall, 'ap': msr_ap})
     
     # Update detection counts
     detection_counts['original']['detections_made'] += int(og_detections_made)
@@ -487,12 +540,15 @@ def object_detection(image_path, annot_path, obj_detection_model, og_metrics, hi
     detection_counts['clahe']['no_detections'] += int(not clahe_detections_made)
     detection_counts['retinex']['detections_made'] += int(ret_detections_made)
     detection_counts['retinex']['no_detections'] += int(not ret_detections_made)
+    detection_counts['msr']['detections_made'] += int(msr_detections_made)
+    detection_counts['msr']['no_detections'] += int(not msr_detections_made)
     
     # Save enhanced images
     filename = os.path.splitext(os.path.basename(image_path))[0]
     cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_histEQ.jpg"), histeq_image)
     cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_clahe.jpg"), clahe_image)
     cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_retinex.jpg"), single_ret_image)
+    cv2.imwrite(os.path.join(OUTPUT_PATH_DIR, f"{filename}_msr.jpg"), msr_image)
 
     
 
@@ -508,6 +564,7 @@ def main():
     hist_metrics = []
     clahe_metrics = []
     ret_metrics = []
+    msr_metrics = []
     
     # Initialize detection counts
     detection_counts = {
@@ -515,17 +572,19 @@ def main():
         'histeq': {'detections_made': 0, 'no_detections': 0},
         'clahe': {'detections_made': 0, 'no_detections': 0},
         'retinex': {'detections_made': 0, 'no_detections': 0},
+        'msr': {'detections_made': 0, 'no_detections': 0},
     }
     
     # For loop calling object_detection()
     for image_path, annot_path in tqdm(zip(images, annotations), total=len(images), desc="YOLOv5 Processing Images"):
-        object_detection(image_path, annot_path, yolov5, og_metrics, hist_metrics, clahe_metrics, ret_metrics, detection_counts)
+        object_detection(image_path, annot_path, yolov5, og_metrics, hist_metrics, clahe_metrics, ret_metrics, msr_metrics, detection_counts)
     
     # Compute average metrics
     og_avg_prec, og_avg_recall, og_avg_ap = calculate_average_metrics(og_metrics)
     hq_avg_prec, hq_avg_recall, hq_avg_ap = calculate_average_metrics(hist_metrics)
     cl_avg_prec, cl_avg_recall, cl_avg_ap = calculate_average_metrics(clahe_metrics)
     re_avg_prec, re_avg_recall, re_avg_ap = calculate_average_metrics(ret_metrics)
+    msr_avg_prec, msr_avg_recall, msr_avg_ap = calculate_average_metrics(msr_metrics)
     
     # Display results
     print("\nEvaluation Results")
@@ -533,6 +592,7 @@ def main():
     print(f"\nImages Enhanced with Histogram Equalization \nPrecision: {hq_avg_prec:.4f}, \nRecall: {hq_avg_recall:.4f}, \nAP: {hq_avg_ap:.4f}")
     print(f"\nImages Enhanced with CLAHE \nPrecision: {cl_avg_prec:.4f}, \nRecall: {cl_avg_recall:.4f}, \nAP: {cl_avg_ap:.4f}")
     print(f"\nImages Enhanced with Retinex \nPrecision: {re_avg_prec:.4f}, \nRecall: {re_avg_recall:.4f}, \nAP: {re_avg_ap:.4f}")
+    print(f"\nImages Enhanced with Multi-Scale Retinex \nPrecision: {msr_avg_prec:.4f}, \nRecall: {msr_avg_recall:.4f}, \nAP: {msr_avg_ap:.4f}")
     
     # Display detection counts
     print("\nDetection Counts:")
