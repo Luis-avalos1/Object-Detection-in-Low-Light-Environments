@@ -158,6 +158,63 @@ def retinex_enhancement(image):
     retinex = retinex.astype(np.uint8)
     return retinex
 
+def multi_scale_retinex(image, scales=[15, 80, 250], weights=[1/3, 1/3, 1/3]):
+    """
+    Apply Multi-Scale Retinex (MSR) algorithm for image enhancement.
+    
+    MSR combines multiple single-scale Retinex operations to achieve better
+    illumination normalization and color constancy across different scales.
+    The different scales capture different levels of illumination:
+    - Small scales (15): Fine details and local illumination changes
+    - Medium scales (80): Regional illumination variations  
+    - Large scales (250): Global illumination patterns
+
+    Args:
+        image (np.array): Input BGR image.
+        scales (list): List of sigma values for Gaussian blur at different scales.
+        weights (list): Corresponding weights for each scale (should sum to 1).
+
+    Returns:
+        np.array: Multi-scale Retinex enhanced BGR image.
+    """
+    if len(scales) != len(weights):
+        raise ValueError("Number of scales must match number of weights")
+    
+    # Ensure weights sum to 1
+    weights = np.array(weights)
+    weights = weights / np.sum(weights)
+    
+    # Convert to float and add small value to avoid log(0)
+    img_float = image.astype(np.float32) + 1.0
+    log_img = np.log10(img_float)
+    
+    # Initialize MSR output
+    msr_output = np.zeros_like(log_img)
+    
+    # Apply Retinex at multiple scales
+    for scale, weight in zip(scales, weights):
+        # Gaussian blur at current scale
+        blurred = cv2.GaussianBlur(img_float, (0, 0), sigmaX=scale)
+        log_blurred = np.log10(blurred)
+        
+        # Single Scale Retinex at this scale
+        ssr = log_img - log_blurred
+        
+        # Add weighted contribution to MSR output
+        msr_output += weight * ssr
+    
+    # Normalize to [0, 255] range
+    msr_min = np.min(msr_output)
+    msr_max = np.max(msr_output)
+    if msr_max > msr_min:
+        msr_output = (msr_output - msr_min) / (msr_max - msr_min) * 255.0
+    else:
+        msr_output = np.zeros_like(msr_output)
+    
+    msr_output = np.clip(msr_output, 0, 255).astype(np.uint8)
+    
+    return msr_output
+
 def adjust_brightness_contrast(image, brightness=0, contrast=0):
     """
     Adjust brightness and contrast of the image.
@@ -461,6 +518,7 @@ def main():
     enhancement_methods = {
         'gamma_corr': lambda img: gamma_correction(img, gamma=1.8),
         'retinex': retinex_enhancement,
+        'multi_scale_retinex': multi_scale_retinex,
         'brightness_contrast': lambda img: adjust_brightness_contrast(img, brightness=30, contrast=30)
     }
 
