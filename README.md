@@ -88,8 +88,27 @@ python scripts/05_qualitative.py       # GT vs prediction panels
 pytest -q                              # evaluator/enhancer unit tests
 ```
 
-Everything runs on CPU/MPS (Apple Silicon) — **no CUDA required**. Inference uses
-MPS or CPU; training uses CPU (see the compute note in `docs/METHODOLOGY.md`).
+Benchmark + inference run on CPU/MPS (Apple Silicon) — **no CUDA required**.
+
+### Fine-tuning on a GPU machine (recommended)
+
+CPU training is slow, and a small/biased subset causes catastrophic forgetting
+(rare classes collapse to ~0 AP). On a CUDA box, fine-tune on the **full** train
+split — `--fraction 1.0` uses all 5,153 images so no class is starved:
+
+```bash
+make finetune DEVICE=0          # full fine-tune, all data, imgsz 640, 100 epochs
+# or directly:
+python scripts/03_finetune.py --base yolov8n.pt --fraction 1.0 --epochs 100 --imgsz 640 --device 0
+```
+
+On a weak GPU/CPU, use the class-balanced freeze-backbone demo (keeps the COCO
+backbone, trains the head on a balanced 120-img/class subset — avoids the
+forgetting that a naive small `--fraction` causes):
+
+```bash
+make finetune-demo DEVICE=0     # freeze=10, balanced subset, imgsz 416, 24 epochs
+```
 
 ## Dataset
 
