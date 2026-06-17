@@ -1,0 +1,2404 @@
+{
+  "subset": [
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00604.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00604.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00368.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00368.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00380.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00380.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00072.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00072.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00221.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00221.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00168.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00168.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00026.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00026.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00430.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00430.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00096.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00096.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00371.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00371.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00388.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00388.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00074.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00074.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00323.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00323.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00474.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00474.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00301.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00301.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00626.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00626.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00285.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00285.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00251.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00251.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00390.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00390.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00215.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00215.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00345.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00345.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00470.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00470.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00274.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00274.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00218.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00218.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00649.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00649.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00411.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00411.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00641.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00641.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00068.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00068.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00229.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00229.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00518.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00518.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00559.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00559.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00277.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00277.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00272.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00272.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00253.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00253.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00647.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00647.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00297.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00297.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00575.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00575.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00082.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00082.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00226.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00226.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bicycle/2015_00160.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bicycle/2015_00160.txt",
+      "class": "Bicycle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01287.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01287.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01154.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01154.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00682.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00682.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00736.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00736.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00906.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00906.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00820.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00820.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00791.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00791.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00932.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00932.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01008.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01008.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01277.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01277.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01148.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01148.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01118.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01118.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01030.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01030.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01056.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01056.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00987.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00987.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00680.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00680.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01242.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01242.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00857.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00857.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01059.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01059.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00673.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00673.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01011.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01011.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00897.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00897.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01084.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01084.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01123.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01123.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00901.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00901.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00822.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00822.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00824.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00824.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00961.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00961.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00679.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00679.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00915.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00915.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00757.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00757.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01232.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01232.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01037.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01037.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01205.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01205.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01187.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01187.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00809.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00809.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00704.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00704.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00730.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00730.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_00911.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_00911.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Boat/2015_01067.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Boat/2015_01067.txt",
+      "class": "Boat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01388.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01388.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01563.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01563.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01460.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01460.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01425.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01425.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01853.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01853.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01457.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01457.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01387.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01387.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01669.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01669.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01739.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01739.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01544.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01544.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01561.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01561.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01433.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01433.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01421.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01421.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01646.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01646.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01399.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01399.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01740.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01740.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01339.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01339.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01549.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01549.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01786.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01786.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01573.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01573.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01787.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01787.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01736.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01736.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01570.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01570.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01668.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01668.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01354.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01354.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01874.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01874.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01711.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01711.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01396.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01396.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01703.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01703.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01614.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01614.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01708.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01708.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01615.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01615.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01633.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01633.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01445.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01445.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01467.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01467.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01554.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01554.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01589.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01589.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01345.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01345.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01860.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01860.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bottle/2015_01608.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bottle/2015_01608.txt",
+      "class": "Bottle"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02206.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02206.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02197.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02197.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02355.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02355.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02042.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02042.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02284.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02284.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02342.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02342.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02001.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02001.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02274.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02274.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02240.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02240.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01955.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01955.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01887.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01887.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02159.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02159.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02119.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02119.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02326.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02326.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02050.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02050.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02303.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02303.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02173.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02173.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02251.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02251.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01962.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01962.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02002.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02002.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01881.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01881.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02306.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02306.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02261.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02261.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01950.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01950.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01929.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01929.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02095.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02095.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02000.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02000.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02399.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02399.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01941.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01941.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01919.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01919.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02194.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02194.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02113.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02113.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01949.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01949.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01953.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01953.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_01989.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_01989.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02262.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02262.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02190.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02190.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02026.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02026.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02244.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02244.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Bus/2015_02149.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Bus/2015_02149.txt",
+      "class": "Bus"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02618.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02618.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02567.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02567.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_03029.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_03029.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02893.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02893.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02962.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02962.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02992.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02992.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02654.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02654.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02651.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02651.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02791.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02791.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02980.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02980.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02858.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02858.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02942.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02942.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02889.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02889.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02614.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02614.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02795.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02795.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02760.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02760.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02888.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02888.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02425.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02425.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02530.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02530.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02449.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02449.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02744.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02744.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02738.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02738.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02822.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02822.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02601.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02601.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02644.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02644.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02919.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02919.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02951.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02951.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02895.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02895.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02826.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02826.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02701.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02701.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02637.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02637.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02901.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02901.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02517.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02517.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02700.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02700.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02756.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02756.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02949.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02949.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02759.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02759.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02703.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02703.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02906.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02906.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Car/2015_02555.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Car/2015_02555.txt",
+      "class": "Car"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03610.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03610.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03180.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03180.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03379.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03379.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03294.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03294.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03410.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03410.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03436.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03436.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03440.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03440.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03546.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03546.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03729.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03729.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03648.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03648.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03738.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03738.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03317.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03317.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03439.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03439.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03775.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03775.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03487.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03487.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03415.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03415.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03048.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03048.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03374.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03374.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03659.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03659.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03126.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03126.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03215.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03215.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03133.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03133.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03404.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03404.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03128.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03128.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03427.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03427.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03054.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03054.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03673.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03673.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03677.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03677.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03492.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03492.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03199.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03199.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03177.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03177.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03532.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03532.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03575.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03575.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03135.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03135.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03290.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03290.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03770.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03770.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03366.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03366.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03431.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03431.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03246.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03246.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cat/2015_03247.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cat/2015_03247.txt",
+      "class": "Cat"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04369.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04369.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04015.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04015.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04162.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04162.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04083.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04083.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04154.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04154.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04063.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04063.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04191.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04191.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04280.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04280.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03786.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03786.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03883.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03883.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04019.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04019.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03853.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03853.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04092.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04092.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04325.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04325.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04182.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04182.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04025.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04025.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03928.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03928.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04091.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04091.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04099.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04099.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04294.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04294.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03827.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03827.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03899.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03899.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03936.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03936.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03916.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03916.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04222.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04222.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04014.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04014.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03869.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03869.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03984.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03984.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04055.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04055.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03863.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03863.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03778.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03778.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04251.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04251.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04246.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04246.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03783.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03783.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04075.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04075.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04016.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04016.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04048.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04048.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03801.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03801.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_04028.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_04028.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Chair/2015_03945.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Chair/2015_03945.txt",
+      "class": "Chair"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04863.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04863.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04837.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04837.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04683.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04683.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04756.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04756.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04648.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04648.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04717.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04717.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04723.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04723.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04776.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04776.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04796.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04796.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04764.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04764.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04597.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04597.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04924.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04924.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04538.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04538.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04591.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04591.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04758.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04758.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04895.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04895.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04918.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04918.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04736.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04736.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04912.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04912.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04432.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04432.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04577.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04577.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04631.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04631.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04732.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04732.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04712.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04712.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04623.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04623.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04775.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04775.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04773.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04773.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04679.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04679.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04885.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04885.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04588.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04588.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04794.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04794.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04902.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04902.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04856.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04856.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04668.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04668.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04557.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04557.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04501.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04501.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04790.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04790.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04521.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04521.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04842.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04842.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Cup/2015_04522.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Cup/2015_04522.txt",
+      "class": "Cup"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05320.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05320.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05237.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05237.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05407.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05407.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05498.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05498.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05297.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05297.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05719.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05719.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_04949.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_04949.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05561.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05561.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_04969.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_04969.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05583.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05583.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05053.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05053.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_04985.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_04985.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05632.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05632.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05675.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05675.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05274.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05274.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05217.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05217.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05079.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05079.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05173.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05173.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05467.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05467.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05121.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05121.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05672.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05672.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05647.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05647.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05304.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05304.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05214.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05214.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05705.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05705.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_04998.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_04998.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05229.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05229.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05509.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05509.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_04999.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_04999.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05716.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05716.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05007.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05007.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05092.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05092.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05152.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05152.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05201.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05201.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05125.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05125.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05671.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05671.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05634.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05634.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05470.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05470.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05701.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05701.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Dog/2015_05592.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Dog/2015_05592.txt",
+      "class": "Dog"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05840.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05840.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05911.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05911.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05838.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05838.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06039.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06039.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06185.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06185.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06224.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06224.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06058.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06058.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06226.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06226.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06161.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06161.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05839.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05839.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06103.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06103.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05877.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05877.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05906.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05906.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05749.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05749.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06000.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06000.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05986.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05986.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05939.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05939.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05996.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05996.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06037.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06037.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05761.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05761.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05834.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05834.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06090.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06090.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05888.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05888.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06242.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06242.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06025.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06025.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06142.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06142.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06010.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06010.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06205.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06205.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05950.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05950.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05879.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05879.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06014.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06014.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05932.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05932.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_06006.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_06006.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05961.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05961.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05935.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05935.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05922.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05922.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05959.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05959.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05858.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05858.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05980.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05980.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Motorbike/2015_05931.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Motorbike/2015_05931.txt",
+      "class": "Motorbike"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06407.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06407.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06784.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06784.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06640.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06640.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06615.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06615.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06623.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06623.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06508.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06508.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06555.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06555.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06762.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06762.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06405.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06405.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06246.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06246.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06287.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06287.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06281.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06281.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06776.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06776.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06473.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06473.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06268.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06268.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06819.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06819.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06553.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06553.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06610.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06610.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06577.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06577.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06833.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06833.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06318.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06318.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06769.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06769.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06715.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06715.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06465.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06465.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06325.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06325.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06442.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06442.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06686.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06686.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06262.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06262.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06749.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06749.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06518.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06518.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06671.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06671.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06429.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06429.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06404.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06404.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06528.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06528.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06612.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06612.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06459.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06459.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06709.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06709.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06578.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06578.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06626.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06626.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/People/2015_06557.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/People/2015_06557.txt",
+      "class": "People"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07000.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07000.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07121.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07121.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07005.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07005.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07271.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07271.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_06918.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_06918.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_06864.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_06864.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_06870.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_06870.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07144.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07144.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07332.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07332.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07046.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07046.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07146.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07146.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07328.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07328.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07208.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07208.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07172.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07172.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07014.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07014.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07207.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07207.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07165.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07165.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07122.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07122.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07240.png",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07240.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07164.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07164.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07001.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07001.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07299.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07299.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07222.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07222.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07133.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07133.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07311.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07311.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07245.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07245.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_06944.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_06944.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07040.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07040.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07020.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07020.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07120.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07120.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07099.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07099.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_06885.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_06885.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_06907.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_06907.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07161.JPEG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07161.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_06920.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_06920.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07017.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07017.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07166.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07166.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07214.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07214.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07174.JPG",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07174.txt",
+      "class": "Table"
+    },
+    {
+      "image": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ExDark_Dataset/Table/2015_07283.jpg",
+      "annot": "/Users/luisavalos/Desktop/repos/Object-Detection-in-Low-Light-Environments/data/ground_truths/Table/2015_07283.txt",
+      "class": "Table"
+    }
+  ]
+}

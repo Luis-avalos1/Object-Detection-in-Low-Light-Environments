@@ -46,6 +46,21 @@ ENV/
 results/detection_results/
 results/enhanced_images/
 
+# Regenerable / large research artifacts
+# (NOTE: .gitignore does NOT support trailing inline comments — keep them on
+#  their own lines, or the whole pattern is treated as literal and ignores nothing.)
+# YOLO-format export (symlinks + labels), regenerable from scripts/00_make_split.py
+data/exdark_yolo/
+# large path manifest; the JSON split is committed instead
+data/splits/*.csv
+# ultralytics training/val outputs (weights, plots, caches) — regenerable
+runs/
+# ultralytics label caches
+*.cache
+# logs
+/tmp/*.log
+*.log
+
 # IDE
 .vscode/
 .idea/
