@@ -4,170 +4,117 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Object Detection in Low-Light Environments</title>
-<meta name="description" content="A reproducible study of image enhancement and detector fine-tuning for object detection on the ExDark low-light dataset, with a corrected COCO-style mAP evaluator and an honest ablation across YOLOv5/8/9/10/11 and RT-DETR." />
+<meta name="description" content="A reproducible study of image enhancement and detector fine-tuning for object detection on the ExDark low-light dataset, with a corrected COCO-style mAP evaluator." />
 <meta property="og:title" content="Object Detection in Low-Light Environments" />
-<meta property="og:description" content="Why 'enhancement barely helps' was the right answer for the wrong reasons: a corrected, reproducible low-light detection benchmark." />
-<meta property="og:type" content="website" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:description" content="Why 'enhancement barely helps' was the right answer for the wrong reasons." />
 <style>
   :root{
-    --paper:#f6f3ec;
-    --paper2:#efeae0;
-    --ink:#211f1b;
-    --soft:#3c3833;
-    --muted:#777166;
-    --rule:#ddd6c8;
-    --accent:#8a3a2a;        /* restrained deep rust */
-    --accent-soft:#b08a52;
-    --good:#3f6b4a;
-    --bad:#9a4034;
-    --serif:"Spectral",Georgia,"Times New Roman",serif;
-    --display:"Fraunces",Georgia,serif;
-    --mono:"Spline Sans Mono",ui-monospace,Menlo,monospace;
-    --readw:680px; --widew:920px;
+    --black:#111111;
+    --gray:#666666;
+    --line:#cccccc;
+    --green:#0a7d2c;
+    --red:#c0392b;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:var(--serif); font-weight:400; font-size:18px; line-height:1.72;
-    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    margin:0; background:#ffffff; color:var(--black);
+    font-family:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono","Roboto Mono",Menlo,Consolas,monospace;
+    font-size:15px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
   }
-  .read{max-width:var(--readw); margin:0 auto; padding:0 24px}
-  .wide{max-width:var(--widew); margin:0 auto; padding:0 24px}
-  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(138,58,42,.28)}
-  a:hover{border-bottom-color:var(--accent)}
-  em{font-style:italic}
-  .mono,code{font-family:var(--mono); font-size:.82em}
+  .wrap{max-width:760px; margin:0 auto; padding:0 22px}
+  a{color:var(--green); text-decoration:underline}
+  a:hover{color:#000}
+  .green{color:var(--green)}
+  .red{color:var(--red)}
+  b,strong{font-weight:700}
 
-  /* top bar */
-  nav{border-bottom:1px solid var(--rule)}
-  nav .wide{display:flex; align-items:baseline; gap:26px; height:64px}
-  nav .brand{font-family:var(--display); font-weight:600; font-size:18px; letter-spacing:.01em; border:0; color:var(--ink); margin-right:auto}
-  nav a.link{color:var(--muted); font-size:14px; border:0; letter-spacing:.02em}
-  nav a.link:hover{color:var(--ink)}
-  @media(max-width:760px){ nav a.link{display:none} }
+  header{padding:60px 0 36px; border-bottom:1px solid var(--line)}
+  .kicker{color:var(--green); font-size:13px; letter-spacing:.04em}
+  h1{font-size:28px; line-height:1.25; font-weight:700; margin:14px 0 0}
+  .dek{color:var(--black); font-size:16px; margin:18px 0 0}
+  .byline{color:var(--gray); font-size:13px; margin-top:18px}
+  .links{margin-top:18px; font-size:14px}
+  .links a{margin-right:20px}
 
-  /* hero */
-  header{padding:84px 0 56px; border-bottom:1px solid var(--rule)}
-  .kicker{font-family:var(--mono); font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); border:0}
-  h1{font-family:var(--display); font-weight:400; font-size:clamp(34px,6vw,58px); line-height:1.06; letter-spacing:-.012em; margin:20px 0 0}
-  .dek{font-size:clamp(19px,2.4vw,22px); color:var(--soft); margin:22px 0 0; line-height:1.6}
-  .byline{font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:26px; border:0}
-  .actions{margin-top:30px; display:flex; gap:22px; flex-wrap:wrap; align-items:center}
-  .actions a{font-family:var(--mono); font-size:14px; letter-spacing:.02em}
+  nav{border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff}
+  nav .wrap{display:flex; flex-wrap:wrap; gap:16px; padding-top:12px; padding-bottom:12px; font-size:13px}
+  nav a{color:var(--gray)}
+  nav a:hover{color:var(--green)}
 
-  /* figures band of stats, understated */
-  .figures{display:flex; flex-wrap:wrap; gap:0; margin-top:48px; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
-  .figures .f{flex:1 1 0; min-width:150px; padding:20px 22px; border-right:1px solid var(--rule)}
-  .figures .f:last-child{border-right:0}
-  .figures .v{font-family:var(--display); font-size:30px; line-height:1; color:var(--ink)}
-  .figures .v.good{color:var(--good)}
-  .figures .k{font-size:13.5px; color:var(--muted); margin-top:8px; line-height:1.4}
-  @media(max-width:680px){ .figures .f{flex:1 1 45%; border-bottom:1px solid var(--rule)} }
+  section{padding:44px 0; border-bottom:1px solid var(--line)}
+  .label{color:var(--green); font-size:13px; letter-spacing:.04em}
+  h2{font-size:22px; font-weight:700; margin:8px 0 0}
+  h3{font-size:16px; font-weight:700; margin:28px 0 0}
+  p{margin:14px 0; color:var(--black)}
+  .lead{font-weight:700}
 
-  /* sections */
-  section{padding:64px 0}
-  section + section{border-top:1px solid var(--rule)}
-  .label{font-family:var(--mono); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); border:0}
-  h2{font-family:var(--display); font-weight:400; font-size:clamp(26px,3.8vw,38px); line-height:1.12; letter-spacing:-.01em; margin:14px 0 6px}
-  h3{font-family:var(--display); font-weight:500; font-size:21px; margin:34px 0 6px}
-  p{color:var(--soft); margin:16px 0}
-  .lead{font-size:20px; color:var(--ink)}
+  ul{padding-left:20px; margin:14px 0}
+  li{margin:8px 0}
+  blockquote{margin:20px 0; padding:10px 16px; border-left:3px solid var(--green); color:var(--black); background:#f6f6f6}
 
-  blockquote{margin:26px 0; padding:4px 0 4px 24px; border-left:2px solid var(--accent-soft); color:var(--soft); font-style:italic}
-  blockquote b{font-style:normal; color:var(--ink)}
-
-  hr.soft{border:0; border-top:1px solid var(--rule); margin:40px 0}
-
-  /* tables */
-  .tablewrap{overflow-x:auto; margin:26px 0}
-  table{border-collapse:collapse; width:100%; font-family:var(--mono); font-size:13.5px}
-  caption{caption-side:bottom; text-align:left; font-family:var(--serif); font-style:italic; font-size:14.5px; color:var(--muted); padding-top:12px; line-height:1.5}
-  th,td{padding:9px 14px; text-align:right; border-bottom:1px solid var(--rule); white-space:nowrap}
+  .tablewrap{overflow-x:auto; margin:20px 0}
+  table{border-collapse:collapse; width:100%; font-size:13px}
+  th,td{padding:7px 10px; text-align:right; border:1px solid var(--line); white-space:nowrap}
   th:first-child,td:first-child{text-align:left}
-  thead th{border-bottom:1.5px solid var(--ink); color:var(--ink); font-weight:500}
-  tbody tr:last-child td{border-bottom:1.5px solid var(--ink)}
-  td.best{color:var(--accent); font-weight:500}
-  td.pos{color:var(--good)} td.neg{color:var(--bad)}
+  thead th{background:#f2f2f2; font-weight:700}
+  td.best{color:var(--green); font-weight:700}
+  td.pos{color:var(--green)} td.neg{color:var(--red)}
+  caption{caption-side:bottom; text-align:left; color:var(--gray); font-size:12px; padding-top:8px}
 
-  /* figures (images) */
-  figure{margin:34px 0}
-  figure img{display:block; width:100%; height:auto; border:1px solid var(--rule); background:#fff}
-  figcaption{font-style:italic; font-size:14.5px; color:var(--muted); margin-top:10px; line-height:1.5}
-  .two{display:grid; grid-template-columns:1fr 1fr; gap:30px}
-  @media(max-width:760px){ .two{grid-template-columns:1fr} }
+  figure{margin:24px 0}
+  figure img{display:block; width:100%; height:auto; border:1px solid var(--line)}
+  figcaption{color:var(--gray); font-size:12.5px; margin-top:6px}
 
-  /* lists */
-  ul.notes{list-style:none; padding:0; margin:20px 0}
-  ul.notes li{padding:14px 0; border-bottom:1px solid var(--rule); color:var(--soft)}
-  ul.notes li:last-child{border-bottom:0}
-  ul.notes b{color:var(--ink)}
-  ol.flow{padding-left:22px; margin:18px 0}
-  ol.flow li{margin:12px 0; color:var(--soft)}
-  ol.flow b{color:var(--ink)}
+  pre{background:#f6f6f6; border:1px solid var(--line); padding:14px 16px; overflow-x:auto; font-size:12.5px; line-height:1.65; color:var(--black)}
+  pre .c{color:var(--gray)}
 
-  pre{background:var(--paper2); border:1px solid var(--rule); border-radius:4px; padding:18px 20px; overflow-x:auto; font-family:var(--mono); font-size:13px; line-height:1.7; color:var(--ink)}
-  pre .c{color:var(--muted)}
-
-  footer{border-top:1px solid var(--rule); padding:46px 0 70px; color:var(--muted); font-size:15px}
-  footer p{color:var(--muted)}
-  footer a{color:var(--soft)}
+  footer{padding:34px 0 60px; color:var(--gray); font-size:13px}
+  footer a{color:var(--gray)}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wide">
-    <span class="brand">Low-Light Detection</span>
-    <a class="link" href="#problem">The problem</a>
-    <a class="link" href="#approach">Approach</a>
-    <a class="link" href="#findings">Findings</a>
-    <a class="link" href="#next">What is next</a>
-    <a class="link" href="#reproduce">Reproduce</a>
-    <a class="link" href="https://github.com/Luis-avalos1/Object-Detection-in-Low-Light-Environments" target="_blank" rel="noopener">GitHub</a>
+  <div class="wrap">
+    <a href="#problem">the problem</a>
+    <a href="#approach">approach</a>
+    <a href="#findings">findings</a>
+    <a href="#next">what is next</a>
+    <a href="#reproduce">reproduce</a>
+    <a href="https://github.com/Luis-avalos1/Object-Detection-in-Low-Light-Environments" target="_blank" rel="noopener">github</a>
   </div>
 </nav>
 
 <header>
-  <div class="read">
-    <span class="kicker">Computer Vision · Reproducible Research</span>
+  <div class="wrap">
+    <div class="kicker">Computer Vision / Reproducible Research</div>
     <h1>Does brightening a dark photo help a model see it?</h1>
     <p class="dek">A course project once concluded that low-light enhancement gave barely any improvement. This rebuild shows that the answer was correct, yet it had been measured with a broken ruler. With a corrected evaluator and a sweep across six detector architectures, a clearer and more honest picture emerges.</p>
-    <p class="byline">By Luis Avalos · Dataset: ExDark (7,363 images, 12 classes)</p>
-    <div class="actions">
-      <a href="#findings">Read the findings →</a>
-      <a href="https://github.com/Luis-avalos1/Object-Detection-in-Low-Light-Environments" target="_blank" rel="noopener">View the source →</a>
-    </div>
-  </div>
-
-  <div class="wide">
-    <div class="figures">
-      <div class="f"><div class="v">6</div><div class="k">detector architectures, from YOLOv5 to RT&#8209;DETR</div></div>
-      <div class="f"><div class="v">12</div><div class="k">enhancement methods in one registry</div></div>
-      <div class="f"><div class="v good">+0.003</div><div class="k">best average gain, inside the margin of noise</div></div>
-      <div class="f"><div class="v">2</div><div class="k">silently broken classes recovered</div></div>
+    <p class="byline">By Luis Avalos / Dataset: ExDark, 7,363 images, 12 classes</p>
+    <div class="links">
+      <a href="#findings">read the findings</a>
+      <a href="https://github.com/Luis-avalos1/Object-Detection-in-Low-Light-Environments" target="_blank" rel="noopener">view the source</a>
     </div>
   </div>
 </header>
 
 <!-- PROBLEM -->
 <section id="problem">
-  <div class="read">
-    <span class="label">01 — The problem</span>
+  <div class="wrap">
+    <div class="label">01 / the problem</div>
     <h2>The original result could not be trusted</h2>
     <p class="lead">Not because the conclusion was wrong, but because the measurement was.</p>
-    <p>The starting point was a student project on the <a href="https://github.com/cs-chan/Exclusively-Dark-Image-Dataset" target="_blank" rel="noopener">ExDark</a> low-light dataset. It reported one precision, recall, and average-precision triple per enhancement method. The numbers were nearly identical, so the takeaway became "enhancement does not help."</p>
+    <p>The starting point was a student project on the <a href="https://github.com/cs-chan/Exclusively-Dark-Image-Dataset" target="_blank" rel="noopener">ExDark</a> low-light dataset. It reported one precision, recall, and average precision triple per enhancement method. The numbers were nearly identical, so the takeaway became "enhancement does not help."</p>
     <p>The deeper issue was that the evaluation could not have shown a difference either way. Three independent flaws made the experiment impossible to interpret, and a fourth quietly distorted the geometry of every image.</p>
 
     <h3>Four flaws, four fixes</h3>
-    <ul class="notes">
-      <li><b>The metric.</b> A per-image precision and recall value was averaged in place of mAP, which collapses the precision and recall curve. It was replaced with a pooled, 101&#8209;point COCO-style average precision.</li>
-      <li><b>Missed objects were invisible.</b> The per-image score ignored false negatives entirely. The recall denominator now counts every ground-truth object across the dataset.</li>
-      <li><b>The Cup class was dropped.</b> It was missing from the class map, so every Cup object was silently discarded. It is now mapped correctly.</li>
-      <li><b>The Boat class was mislabeled</b> as "traffic light," which forced its average precision to roughly zero. It now maps to the correct category.</li>
+    <ul>
+      <li><span class="red">Broken metric.</span> A per-image precision and recall value was averaged in place of mAP, which collapses the curve. <span class="green">Fixed with a pooled, 101 point COCO-style average precision.</span></li>
+      <li><span class="red">Missed objects were invisible.</span> The per-image score ignored false negatives. <span class="green">The recall denominator now counts every ground-truth object.</span></li>
+      <li><span class="red">The Cup class was dropped.</span> It was missing from the class map, so every Cup object was discarded. <span class="green">It is now mapped correctly.</span></li>
+      <li><span class="red">The Boat class was mislabeled</span> as "traffic light," forcing its score to roughly zero. <span class="green">It now maps to the right category.</span></li>
     </ul>
 
     <blockquote>The original conclusion happened to match reality, but it was a guess dressed as a result. The contribution here is making that conclusion <b>trustworthy</b>, and then discovering what the broken metric had hidden.</blockquote>
@@ -176,41 +123,37 @@
 
 <!-- APPROACH -->
 <section id="approach">
-  <div class="read">
-    <span class="label">02 — Approach</span>
+  <div class="wrap">
+    <div class="label">02 / approach</div>
     <h2>A research-grade benchmark</h2>
     <p class="lead">One reproducible pipeline that runs on any machine, choosing a GPU, Apple silicon, or the CPU automatically.</p>
-    <p>The framework rests on a correct evaluator that reports mAP at an IoU of 0.5, mAP averaged from 0.5 to 0.95, per-class average precision, and bootstrap confidence intervals. It is cross-checked against the Ultralytics validation routine. Six detectors run through a single adapter, spanning four generations of the YOLO family alongside the transformer-based RT&#8209;DETR. Twelve enhancement methods sit behind one interface, covering gamma, brightness and contrast, histogram methods, the Retinex family, white balance, and a dark-channel prior.</p>
+    <p>The framework rests on a correct evaluator that reports mAP at an IoU of 0.5, mAP averaged from 0.5 to 0.95, per-class average precision, and bootstrap confidence intervals. It is cross-checked against the Ultralytics validation routine. Six detectors run through a single adapter, spanning four generations of the YOLO family alongside the transformer-based RT-DETR. Twelve enhancement methods sit behind one interface, covering gamma, brightness and contrast, histogram methods, the Retinex family, white balance, and a dark channel prior.</p>
     <p>Every result is deterministic. A seed-fixed, class-stratified split is committed to the repository, so each experiment draws from the identical partition.</p>
-  </div>
-  <div class="wide">
-    <div class="two">
-      <figure>
-        <img src="assets/enhancement_comparison.jpg" alt="One low-light frame under several enhancement methods" loading="lazy"/>
-        <figcaption>The same low-light frame under several enhancement methods. Some look far brighter to a person, yet looking better and detecting better turn out to be only loosely related.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/quality_vs_map.png" alt="Perceptual image quality plotted against detection accuracy" loading="lazy"/>
-        <figcaption>Perceptual quality plotted against detection accuracy. The weak relationship is the point. Enhancement tuned for the human eye is the wrong objective for a detector.</figcaption>
-      </figure>
-    </div>
+
+    <figure>
+      <img src="assets/enhancement_comparison.jpg" alt="One low-light frame under several enhancement methods" loading="lazy"/>
+      <figcaption>The same low-light frame under several enhancement methods. Some look far brighter to a person, yet looking better and detecting better turn out to be only loosely related.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/quality_vs_map.png" alt="Perceptual image quality plotted against detection accuracy" loading="lazy"/>
+      <figcaption>Perceptual quality plotted against detection accuracy. The weak relationship is the point. Enhancement tuned for the human eye is the wrong objective for a detector.</figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- FINDINGS -->
 <section id="findings">
-  <div class="read">
-    <span class="label">03 — Finding one</span>
+  <div class="wrap">
+    <div class="label">03 / finding one</div>
     <h2>On a frozen detector, enhancement is neutral</h2>
     <p class="lead">Every detector against every enhancement, on the same images, through the same evaluator.</p>
-    <p>The table below reports mAP at an IoU of 0.5 for a detector that was never adapted to the enhanced images. The best value in each row is marked in the accent color.</p>
-  </div>
-  <div class="wide">
+    <p>The table reports mAP at an IoU of 0.5 for a detector that was never adapted to the enhanced images. The best value in each row is shown in <span class="green">green</span>.</p>
+
     <div class="tablewrap">
       <table>
         <thead><tr>
-          <th>Detector</th><th>original</th><th>gamma</th><th>adapt&#8209;γ</th><th>bright/contrast</th>
-          <th>hist&#8209;eq</th><th>CLAHE&#8209;HSV</th><th>CLAHE&#8209;LAB</th><th>gray&#8209;world</th><th>DCP</th>
+          <th>Detector</th><th>original</th><th>gamma</th><th>adapt-g</th><th>br/con</th>
+          <th>hist-eq</th><th>CLAHE-HSV</th><th>CLAHE-LAB</th><th>gray-world</th><th>DCP</th>
         </tr></thead>
         <tbody>
           <tr><td>YOLOv8n</td><td class="best">0.581</td><td>0.547</td><td>0.504</td><td>0.540</td><td>0.487</td><td>0.574</td><td>0.575</td><td>0.491</td><td>0.530</td></tr>
@@ -218,140 +161,120 @@
           <tr><td>YOLO11n</td><td>0.632</td><td>0.605</td><td>0.550</td><td>0.617</td><td>0.521</td><td>0.630</td><td class="best">0.634</td><td>0.540</td><td>0.555</td></tr>
           <tr><td>YOLOv5nu</td><td>0.548</td><td>0.533</td><td>0.477</td><td>0.535</td><td>0.475</td><td>0.550</td><td class="best">0.552</td><td>0.465</td><td>0.476</td></tr>
         </tbody>
-        <caption>mAP at IoU 0.5, zero-shot COCO detectors on the ExDark test subset (15 images per class). These numbers reproduce on any device. Only throughput changes.</caption>
+        <caption>mAP at IoU 0.5, zero-shot COCO detectors, ExDark test subset, 15 images per class. These numbers reproduce on any device. Only throughput changes.</caption>
       </table>
     </div>
-  </div>
-  <div class="read">
+
     <h3>Averaged across all detectors</h3>
     <p>CLAHE on the LAB color space is the only method that beats doing nothing, and it wins by three thousandths of a point, which sits inside the bootstrap confidence interval. Everything else is neutral or harmful. Aggressive global brightening, such as histogram equalization and gray-world balancing, pushes the image away from the natural-photo statistics the detector expects, and accuracy falls.</p>
-  </div>
-  <div class="wide">
-    <div class="two">
-      <div>
-        <div class="tablewrap">
-          <table>
-            <thead><tr><th>Enhancement</th><th>mean mAP</th><th>Δ vs original</th></tr></thead>
-            <tbody>
-              <tr><td>CLAHE&#8209;LAB</td><td>0.606</td><td class="pos">+0.003</td></tr>
-              <tr><td>original</td><td>0.603</td><td>+0.000</td></tr>
-              <tr><td>CLAHE&#8209;HSV</td><td>0.602</td><td class="neg">&#8722;0.001</td></tr>
-              <tr><td>bright/contrast</td><td>0.581</td><td class="neg">&#8722;0.023</td></tr>
-              <tr><td>gamma</td><td>0.579</td><td class="neg">&#8722;0.025</td></tr>
-              <tr><td>DCP</td><td>0.541</td><td class="neg">&#8722;0.062</td></tr>
-              <tr><td>adaptive&#8209;γ</td><td>0.528</td><td class="neg">&#8722;0.076</td></tr>
-              <tr><td>gray&#8209;world</td><td>0.520</td><td class="neg">&#8722;0.083</td></tr>
-              <tr><td>hist&#8209;eq</td><td>0.507</td><td class="neg">&#8722;0.096</td></tr>
-            </tbody>
-            <caption>Mean across the four detectors above.</caption>
-          </table>
-        </div>
-      </div>
-      <figure style="margin-top:0">
-        <img src="assets/model_enhancement_matrix.png" alt="Heatmap of detector against enhancement" loading="lazy"/>
-        <figcaption>The full detector against enhancement matrix as a heatmap. The original and CLAHE columns dominate, and the verdict holds across four architectures from three YOLO generations.</figcaption>
-      </figure>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Enhancement</th><th>mean mAP</th><th>change vs original</th></tr></thead>
+        <tbody>
+          <tr><td>CLAHE-LAB</td><td>0.606</td><td class="pos">+0.003</td></tr>
+          <tr><td>original</td><td>0.603</td><td>0.000</td></tr>
+          <tr><td>CLAHE-HSV</td><td>0.602</td><td class="neg">-0.001</td></tr>
+          <tr><td>brightness/contrast</td><td>0.581</td><td class="neg">-0.023</td></tr>
+          <tr><td>gamma</td><td>0.579</td><td class="neg">-0.025</td></tr>
+          <tr><td>DCP</td><td>0.541</td><td class="neg">-0.062</td></tr>
+          <tr><td>adaptive-gamma</td><td>0.528</td><td class="neg">-0.076</td></tr>
+          <tr><td>gray-world</td><td>0.520</td><td class="neg">-0.083</td></tr>
+          <tr><td>hist-eq</td><td>0.507</td><td class="neg">-0.096</td></tr>
+        </tbody>
+        <caption>Mean across the four detectors above.</caption>
+      </table>
     </div>
-  </div>
-  <div class="read">
+
+    <figure>
+      <img src="assets/model_enhancement_matrix.png" alt="Heatmap of detector against enhancement" loading="lazy"/>
+      <figcaption>The full detector against enhancement matrix as a heatmap. The original and CLAHE columns dominate, and the verdict holds across four architectures from three YOLO generations.</figcaption>
+    </figure>
+
     <blockquote>The conclusion is robust precisely because it holds across <b>different kinds of model</b>. It is not an artifact of one network. On a detector that never adapted to the enhanced domain, classical enhancement does not help.</blockquote>
-  </div>
 
-  <hr class="soft" />
-
-  <div class="read">
-    <span class="label">Finding two</span>
+    <div class="label" style="margin-top:36px">finding two</div>
     <h2>The per-class wins were noise</h2>
     <p class="lead">A single model made enhancement look helpful for specific classes. It did not replicate.</p>
     <p>On YOLOv8s alone, CLAHE on LAB appeared to lift several classes, with Bottle, Cat, and Dog each rising by a noticeable margin. It was tempting to call that a result.</p>
-    <p>Averaging each class across all four detectors tells a different story. Only Motorbike improves on every model. Every other class is mixed. Bottle, for instance, rises on two detectors and falls on the other two, and Dog swings from a clear gain to a larger loss. That pattern is the fingerprint of sampling noise at fifteen images per class, not a real effect.</p>
+    <p>Averaging each class across all four detectors tells a different story. Only Motorbike improves on every model. Every other class is mixed. Bottle rises on two detectors and falls on the other two, and Dog swings from a clear gain to a larger loss. That pattern is the fingerprint of sampling noise at fifteen images per class, not a real effect.</p>
     <blockquote>A correct evaluator does more than hand you the right number. It lets you tell a real effect from a lucky one. Checking a single-model finding against the other models is what turned a false positive into an honest null result.</blockquote>
-  </div>
-  <div class="wide">
-    <div class="two">
-      <figure>
-        <img src="assets/per_class_ap_heatmap.png" alt="Per-class average precision heatmap" loading="lazy"/>
-        <figcaption>Per-class average precision across enhancement methods. The recovered Cup and Boat rows now carry real signal, yet no enhancement consistently lifts any single class.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/qualitative_panel.png" alt="Ground truth boxes against predicted boxes" loading="lazy"/>
-        <figcaption>Ground-truth boxes in green against predicted boxes in orange, on held-out low-light images.</figcaption>
-      </figure>
-    </div>
+
+    <figure>
+      <img src="assets/per_class_ap_heatmap.png" alt="Per-class average precision heatmap" loading="lazy"/>
+      <figcaption>Per-class average precision across enhancement methods. The recovered Cup and Boat rows now carry real signal, yet no enhancement consistently lifts any single class.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/qualitative_panel.png" alt="Ground truth boxes against predicted boxes" loading="lazy"/>
+      <figcaption>Ground-truth boxes in green against predicted boxes in orange, on held-out low-light images.</figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- NEXT -->
 <section id="next">
-  <div class="read">
-    <span class="label">04 — What is next</span>
+  <div class="wrap">
+    <div class="label">04 / what is next</div>
     <h2>The decisive experiment</h2>
     <p class="lead">Everything so far tests a frozen detector, which is the setting where enhancement is expected to be neutral. The real question needs the detector to learn the enhanced domain.</p>
-    <p>A model pretrained on ordinary photographs has never seen CLAHE-processed pixels, so feeding it enhanced images is an out-of-distribution test. The published literature shows enhancement pays off only when the detector is fine-tuned on the enhanced domain. The project therefore ships a controlled comparison. It fine-tunes the same base model on original images and on enhanced images, holding the epochs, the split, and the seed identical, and changing only the pixels. It then evaluates a grid of training domain against test domain. The matched diagonal of that grid is the fair, apples-to-apples answer, and it runs on a GPU machine.</p>
+    <p>A model pretrained on ordinary photographs has never seen CLAHE-processed pixels, so feeding it enhanced images is an out-of-distribution test. The published literature shows enhancement pays off only when the detector is fine-tuned on the enhanced domain. The project ships a controlled comparison. It fine-tunes the same base model on original images and on enhanced images, holding the epochs, the split, and the seed identical, and changing only the pixels. It then evaluates a grid of training domain against test domain. The matched diagonal of that grid is the fair answer, and it runs on a GPU machine.</p>
 
     <h3>Context from the published record</h3>
-  </div>
-  <div class="wide">
-    <div class="two">
-      <div>
-        <div class="tablewrap">
-          <table>
-            <thead><tr><th>Method</th><th>mAP at 0.5</th></tr></thead>
-            <tbody>
-              <tr><td>Zero-shot COCO YOLOv3</td><td>~0.21</td></tr>
-              <tr><td>Fine-tuned YOLOv3 baseline</td><td class="best">0.764</td></tr>
-              <tr><td>Zero-DCE plus YOLOv3</td><td>0.769</td></tr>
-              <tr><td>MAET (2021)</td><td>0.777</td></tr>
-              <tr><td>IAT-YOLO (2022)</td><td>0.778</td></tr>
-              <tr><td>PE-YOLO (2023)</td><td>0.780</td></tr>
-            </tbody>
-            <caption>Canonical ExDark numbers on the official split.</caption>
-          </table>
-        </div>
-      </div>
-      <figure style="margin-top:0">
-        <img src="assets/zeroshot_vs_finetuned.png" alt="Zero-shot against fine-tuned accuracy" loading="lazy"/>
-        <figcaption>Zero-shot against fine-tuned accuracy, illustrating the dominant lever. A clean GPU run replaces the earlier CPU placeholder.</figcaption>
-      </figure>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Method</th><th>mAP at 0.5</th></tr></thead>
+        <tbody>
+          <tr><td>Zero-shot COCO YOLOv3</td><td>0.21</td></tr>
+          <tr><td>Fine-tuned YOLOv3 baseline</td><td class="best">0.764</td></tr>
+          <tr><td>Zero-DCE plus YOLOv3</td><td>0.769</td></tr>
+          <tr><td>MAET, 2021</td><td>0.777</td></tr>
+          <tr><td>IAT-YOLO, 2022</td><td>0.778</td></tr>
+          <tr><td>PE-YOLO, 2023</td><td>0.780</td></tr>
+        </tbody>
+        <caption>Canonical ExDark numbers on the official split.</caption>
+      </table>
     </div>
-  </div>
-  <div class="read">
     <p>The entire four-year span of published results covers roughly 1.6 points of mAP, while fine-tuning alone is worth about 0.55. That ratio is the thesis. Adapt the detector, rather than polish the pixels.</p>
+
+    <figure>
+      <img src="assets/zeroshot_vs_finetuned.png" alt="Zero-shot against fine-tuned accuracy" loading="lazy"/>
+      <figcaption>Zero-shot against fine-tuned accuracy, illustrating the dominant lever. A clean GPU run replaces the earlier CPU placeholder.</figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- REPRODUCE -->
 <section id="reproduce">
-  <div class="read">
-    <span class="label">05 — Reproduce</span>
+  <div class="wrap">
+    <div class="label">05 / reproduce</div>
     <h2>One command, any platform</h2>
     <p class="lead">It runs on macOS, Windows, and Linux. The device is detected automatically, and the benchmark needs no GPU.</p>
-    <pre><span class="c"># Environment</span>
+    <pre><span class="c"># environment</span>
 python -m venv venv
-source venv/bin/activate      <span class="c"># Windows: venv\Scripts\activate</span>
+source venv/bin/activate      <span class="c"># windows: venv\Scripts\activate</span>
 pip install -r requirements.txt
 
-<span class="c"># Run the whole study</span>
+<span class="c"># run the whole study</span>
 python run.py                 <span class="c"># full benchmark and report</span>
 python run.py --quick         <span class="c"># fast smoke test</span>
 python run.py --full          <span class="c"># six detectors, all twelve enhancers</span>
 
-<span class="c"># The decisive comparison, on a GPU machine</span>
+<span class="c"># the decisive comparison, on a GPU machine</span>
 python run.py --stages domain report --domain --device auto \
   --domain-enhancers original clahe_lab --ft-epochs 100 --ft-fraction 1.0</pre>
 
-    <ol class="flow">
+    <ul>
       <li><b>Correctness first.</b> Known-answer tests pin the evaluator and the enhancers before any model runs.</li>
-      <li><b>Provenance built in.</b> Every metrics file records its device, and a tag option archives a per-machine snapshot, so identical accuracy across two computers is easy to demonstrate.</li>
-      <li><b>Self-documenting output.</b> A single run writes the comparison, the heatmap, the tables, and an HTML report. The figures on this page are generated, not drawn by hand.</li>
-    </ol>
+      <li><b>Provenance built in.</b> Every metrics file records its device, and a tag option archives a per-machine snapshot, so identical accuracy across two computers is easy to show.</li>
+      <li><b>Self-documenting output.</b> A single run writes the comparison, the heatmap, the tables, and an HTML report. The figures here are generated, not drawn by hand.</li>
+    </ul>
   </div>
 </section>
 
 <footer>
-  <div class="read">
-    <p><b style="color:var(--ink)">Stack.</b> Python, PyTorch, Ultralytics (YOLOv5 through YOLO11, RT&#8209;DETR), OpenCV, NumPy, scikit-learn, and Matplotlib. Dataset by Loh and Chan, 2019.</p>
-    <p>Built by <a href="https://github.com/Luis-avalos1" target="_blank" rel="noopener">Luis Avalos</a>. The source and full methodology live on <a href="https://github.com/Luis-avalos1/Object-Detection-in-Low-Light-Environments" target="_blank" rel="noopener">GitHub</a>.</p>
+  <div class="wrap">
+    <p><b>Stack.</b> Python, PyTorch, Ultralytics (YOLOv5 through YOLO11, RT-DETR), OpenCV, NumPy, scikit-learn, Matplotlib. Dataset by Loh and Chan, 2019.</p>
+    <p>Built by <a href="https://github.com/Luis-avalos1" target="_blank" rel="noopener">Luis Avalos</a>. Source and full methodology on <a href="https://github.com/Luis-avalos1/Object-Detection-in-Low-Light-Environments" target="_blank" rel="noopener">GitHub</a>.</p>
   </div>
 </footer>
 
