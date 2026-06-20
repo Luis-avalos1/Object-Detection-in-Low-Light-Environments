@@ -1,9 +1,13 @@
 # Low-light object detection — reproducible pipeline
+# PY defaults to the venv interpreter on macOS/Linux; override on Windows with
+#   mingw32-make PY=python   (or just run `python run.py` directly — see README).
 PY ?= venv/bin/python
 
-.PHONY: help split benchmark finetune report qualitative test all clean
+.PHONY: help run quick split benchmark finetune report qualitative test all clean
 
 help:
+	@echo "make run         - cross-platform one-command pipeline (python run.py)"
+	@echo "make quick       - fast smoke test (5 imgs/class, fast enhancers)"
 	@echo "make split       - build deterministic split + YOLO export"
 	@echo "make benchmark   - zero-shot detector sweep + enhancement grid"
 	@echo "make finetune    - full fine-tune YOLOv8n on ExDark GPU (DEVICE=0) + before/after"
@@ -12,6 +16,12 @@ help:
 	@echo "make qualitative - GT vs prediction panels"
 	@echo "make test        - run unit tests"
 	@echo "make all         - split -> benchmark -> finetune -> report"
+
+run:
+	$(PY) run.py
+
+quick:
+	$(PY) run.py --quick
 
 split:
 	$(PY) scripts/00_make_split.py

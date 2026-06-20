@@ -75,11 +75,36 @@ results/           # metrics (json/csv), figures, report.md / report.html
 
 ## Quickstart
 
+One cross-platform command runs the whole study and auto-detects the best device
+(CUDA → MPS → CPU). Works identically on **macOS, Windows, and Linux** — no shell
+scripts, no hardcoded interpreter paths:
+
 ```bash
-python -m venv venv && source venv/bin/activate
+python -m venv venv
+# macOS/Linux:  source venv/bin/activate
+# Windows:      venv\Scripts\activate
 pip install -r requirements.txt
 
 # Place the ExDark dataset under data/ (see "Dataset" below), then:
+python run.py --quick          # fast smoke test (5 imgs/class, ~minutes)
+python run.py                  # full benchmark across detectors × enhancements
+python run.py --full           # 6 detector families × all 12 enhancers
+python run.py --full --finetune --device auto   # add the fine-tuning arm (GPU rec.)
+```
+
+`run.py` produces a **detector × enhancement** comparison
+(`results/comparison.md` + `figures/model_enhancement_matrix.png`) on top of the
+standard report. Pick stages and knobs explicitly, too:
+
+```bash
+python run.py --stages env split matrix report \
+  --detectors yolov8n yolov9t yolov10n yolo11n rtdetr-l \
+  --enhancers original clahe_lab adaptive_gamma hist_eq --per-class 25
+```
+
+<details><summary>Or run the original per-stage scripts directly</summary>
+
+```bash
 python scripts/00_make_split.py        # deterministic split + YOLO export
 python scripts/02_run_benchmark.py     # zero-shot sweep + enhancement grid -> results/metrics/grid.json
 python scripts/03_finetune.py          # fine-tune + before/after          -> results/metrics/finetune.json
@@ -87,8 +112,26 @@ python scripts/04_make_report.py       # figures + tables + report.md/html
 python scripts/05_qualitative.py       # GT vs prediction panels
 pytest -q                              # evaluator/enhancer unit tests
 ```
+</details>
 
 Benchmark + inference run on CPU/MPS (Apple Silicon) — **no CUDA required**.
+
+### Running on more than one machine
+
+Inference mAP is **device-independent** — the same seed, weights, and images give
+the same mAP on Apple MPS and on an NVIDIA GPU; only throughput (FPS) and the
+fine-tuning arm differ. So keep `results/` as the single canonical run (the GPU
+box is recommended, since fine-tuning needs it) and use `--tag` to keep a
+per-machine snapshot under `results/snapshots/<tag>/` for provenance:
+
+```bash
+python run.py --tag mac-mps      # on the Mac
+python run.py --full --finetune --tag pc-cuda --device auto   # on the Windows GPU box
+```
+
+Each snapshot carries a `RUN_INFO.txt` (platform, device, settings). This shows
+cross-platform reproducibility (identical mAP, different FPS) without two
+divergent result trees.
 
 ### Fine-tuning on a GPU machine (recommended)
 

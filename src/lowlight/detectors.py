@@ -19,13 +19,24 @@ from . import config as C
 os.environ.setdefault("PYTORCH_ENABLE_MPS_FALLBACK", "1")
 
 _KNOWN = {
+    # YOLOv5(u) — 2020 CNN one-stage, anchor-free "u" retrain
+    "yolov5nu": "yolov5nu.pt",
+    # YOLOv8 — 2023 CNN one-stage
     "yolov8n": "yolov8n.pt",
     "yolov8s": "yolov8s.pt",
     "yolov8m": "yolov8m.pt",
+    # YOLOv9 — 2024, programmable gradient information
+    "yolov9t": "yolov9t.pt",
+    "yolov9s": "yolov9s.pt",
+    # YOLOv10 — 2024, NMS-free end-to-end head
+    "yolov10n": "yolov10n.pt",
+    "yolov10s": "yolov10s.pt",
+    # YOLO11 — 2024 CNN one-stage (latest YOLO line)
     "yolo11n": "yolo11n.pt",
     "yolo11s": "yolo11s.pt",
-    "yolov5nu": "yolov5nu.pt",
+    # RT-DETR — transformer / DETR detector (a genuinely different family)
     "rtdetr-l": "rtdetr-l.pt",
+    "rtdetr-x": "rtdetr-x.pt",
 }
 
 

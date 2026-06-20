@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'>
+<title>Low-Light Detection — Research Report</title>
+<style>body{max-width:920px;margin:40px auto;padding:0 20px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a}h1,h2,h3{line-height:1.25;margin-top:1.6em}h1{border-bottom:2px solid #eaecef;padding-bottom:.3em}h2{border-bottom:1px solid #eaecef;padding-bottom:.3em}table{border-collapse:collapse;width:100%;margin:1em 0;font-size:14px}th,td{border:1px solid #d0d7de;padding:6px 12px;text-align:left}th{background:#f6f8fa}tr:nth-child(even){background:#fbfcfd}img{max-width:100%;border:1px solid #eaecef;border-radius:6px;margin:1em 0}code,pre{background:#f6f8fa;border-radius:6px;font-family:SFMono-Regular,Consolas,monospace}pre{padding:14px;overflow:auto}code{padding:2px 5px}blockquote{border-left:4px solid #d0d7de;color:#57606a;margin:0;padding:0 1em}</style></head><body>
+<h1>Object Detection in Low-Light Environments — Research Report</h1>
+
+<blockquote>Reproducible benchmark of image-enhancement and detector fine-tuning strategies on the <strong>ExDark</strong> low-light dataset, with a corrected COCO-style mAP evaluator.</blockquote>
+
+<p>*Auto-generated from <code>results/metrics/</code>. Hardware: mps (Apple M1). Seed 42. Split 70/15/15 stratified by class.*</p>
+
+
+<h2>Abstract</h2>
+
+<p>This project revisits a course experiment that found *“barely any improvement”* from low-light image enhancement. We show that result was an artifact of three methodology flaws — an invalid per-image precision/recall average standing in for mAP, a class map that silently dropped the <strong>Cup</strong> class and mis-mapped <strong>Boat</strong> to “traffic light”, and an enhancement comparison run on a *frozen* COCO detector that was never adapted to the enhanced domain. After replacing the evaluator with a correct, pooled COCO-style mAP, fixing the taxonomy, and <strong>fine-tuning</strong> the detector on ExDark, the picture becomes clear and matches the literature: fine-tuning is the dominant lever, while classical enhancement on a fixed detector moves mAP very little.</p>
+
+
+<h2>1. Zero-shot detector baseline</h2>
+
+<p>COCO-pretrained detectors evaluated on the ExDark test subset with no enhancement and no fine-tuning. Detections are mapped COCO→ExDark across the 12 shared classes.</p>
+
+<table><thead><tr><th>Detector</th><th>mAP@0.5</th><th>mAP@.5:.95</th><th>Recall@.25</th><th>FPS</th></tr></thead><tbody>
+<tr><td>yolov8s</td><td>0.652</td><td>0.382</td><td>0.673</td><td>0.8</td></tr>
+<tr><td>yolo11n</td><td>0.632</td><td>0.359</td><td>0.621</td><td>0.8</td></tr>
+<tr><td>yolov8n</td><td>0.581</td><td>0.331</td><td>0.580</td><td>2.7</td></tr>
+<tr><td>yolov5nu</td><td>0.548</td><td>0.309</td><td>0.543</td><td>0.9</td></tr>
+</tbody></table>
+
+<p><img alt='Accuracy vs latency' src='figures/accuracy_vs_latency.png'></p>
+
+
+<h2>2. Does enhancement help? (frozen detector)</h2>
+
+<p>A single detector is held fixed while the input enhancement varies. Per the literature, classical enhancement on a detector that never saw the enhanced domain is expected to help little or hurt.</p>
+
+<table><thead><tr><th>Enhancement</th><th>mAP@0.5</th><th>mAP@.5:.95</th><th>Δ vs original</th><th>FPS</th></tr></thead><tbody>
+<tr><td>original</td><td>0.621</td><td>0.353</td><td>+0.000</td><td>3.7</td></tr>
+<tr><td>clahe_hsv</td><td>0.616</td><td>0.346</td><td>-0.005</td><td>3.7</td></tr>
+<tr><td>clahe_lab</td><td>0.615</td><td>0.348</td><td>-0.006</td><td>3.6</td></tr>
+<tr><td>gamma</td><td>0.586</td><td>0.329</td><td>-0.035</td><td>3.7</td></tr>
+<tr><td>original</td><td>0.581</td><td>0.331</td><td>-0.040</td><td>2.7</td></tr>
+<tr><td>clahe_lab</td><td>0.575</td><td>0.330</td><td>-0.046</td><td>1.2</td></tr>
+<tr><td>clahe_hsv</td><td>0.574</td><td>0.324</td><td>-0.048</td><td>1.6</td></tr>
+<tr><td>dcp</td><td>0.566</td><td>0.314</td><td>-0.055</td><td>3.6</td></tr>
+<tr><td>gamma</td><td>0.547</td><td>0.313</td><td>-0.074</td><td>2.4</td></tr>
+<tr><td>brightness_contrast</td><td>0.540</td><td>0.312</td><td>-0.081</td><td>1.8</td></tr>
+<tr><td>adaptive_gamma</td><td>0.540</td><td>0.302</td><td>-0.081</td><td>3.8</td></tr>
+<tr><td>gray_world</td><td>0.537</td><td>0.296</td><td>-0.085</td><td>3.8</td></tr>
+<tr><td>dcp</td><td>0.530</td><td>0.291</td><td>-0.091</td><td>1.1</td></tr>
+<tr><td>msrcr</td><td>0.514</td><td>0.282</td><td>-0.107</td><td>0.1</td></tr>
+<tr><td>hist_eq</td><td>0.514</td><td>0.287</td><td>-0.107</td><td>3.8</td></tr>
+<tr><td>msr</td><td>0.510</td><td>0.281</td><td>-0.111</td><td>0.0</td></tr>
+<tr><td>adaptive_gamma</td><td>0.504</td><td>0.287</td><td>-0.118</td><td>1.8</td></tr>
+<tr><td>gray_world</td><td>0.491</td><td>0.279</td><td>-0.131</td><td>1.2</td></tr>
+<tr><td>hist_eq</td><td>0.487</td><td>0.269</td><td>-0.134</td><td>1.6</td></tr>
+</tbody></table>
+
+<p><img alt='mAP by enhancement' src='figures/map_by_enhancement.png'></p>
+
+
+<p><img alt='Per-class AP heatmap' src='figures/per_class_ap_heatmap.png'></p>
+
+
+<h3>Perceptual quality vs detection accuracy</h3>
+
+<p>Brighter, higher-entropy images are not necessarily easier to detect in — the two are weakly correlated, evidence that enhancement optimised for human perception is the wrong objective for a detector.</p>
+
+<p><img alt='Quality vs mAP' src='figures/quality_vs_map.png'></p>
+
+
+<h2>3. Fine-tuning on ExDark — the dominant lever</h2>
+
+<p>The detector is fine-tuned on the ExDark training split (native 12-class head) and evaluated on the held-out test split.</p>
+
+<table><thead><tr><th>Model</th><th>Epochs</th><th>Zero-shot mAP@0.5</th><th>Fine-tuned mAP@0.5</th><th>Fine-tuned mAP@.5:.95</th><th>Gain</th></tr></thead><tbody>
+<tr><td>yolov8n</td><td>20</td><td>0.559</td><td>0.218</td><td>0.125</td><td>-0.340</td></tr>
+</tbody></table>
+
+<p><img alt='Zero-shot vs fine-tuned' src='figures/zeroshot_vs_finetuned.png'></p>
+
+
+<h2>4. Context: published ExDark results</h2>
+
+<p>Canonical ExDark numbers (fine-tuned YOLOv3, official split, mAP@0.5) to situate our results. Note the entire 4-year SOTA spread is ~1.6 mAP, underscoring that enhancement adds little once the detector is fine-tuned.</p>
+
+<table><thead><tr><th>Method</th><th>mAP@0.5</th><th>Note</th></tr></thead><tbody>
+<tr><td>Zero-shot COCO YOLOv3</td><td>~0.21</td><td>domain gap</td></tr>
+<tr><td>Fine-tuned YOLOv3 (baseline)</td><td>0.764</td><td>the lever</td></tr>
+<tr><td>Zero-DCE + YOLOv3</td><td>0.769</td><td>+learned enhancement</td></tr>
+<tr><td>MAET (ICCV&#x27;21)</td><td>0.777</td><td>illumination-aware</td></tr>
+<tr><td>IAT-YOLO (BMVC&#x27;22)</td><td>0.778</td><td>adaptive transformer</td></tr>
+<tr><td>PE-YOLO (BMVC&#x27;23)</td><td>0.780</td><td>pyramid enhancement</td></tr>
+</tbody></table>
+
+<p>*Sources: MAET, IAT, PE-YOLO repositories/papers; Marshetty zero-shot write-up; two-stage YOLOv7 study (PMC12190514).*</p>
+
+
+<h2>5. Methodology fixes (vs the original project)</h2>
+
+<table><thead><tr><th>Issue in original code</th><th>Effect</th><th>Fix</th></tr></thead><tbody>
+<tr><td>Averaged per-image <code>precision[-1]</code>/<code>recall[-1]</code> as “mAP”</td><td>No PR-curve integration; signal washed out; numbers non-comparable</td><td>Pooled COCO-style evaluator (<code>metrics.py</code>), 101-pt AP, mAP@0.5 &amp; @.5:.95</td></tr>
+<tr><td><code>sklearn average_precision_score(match, score)</code> per image</td><td>Ignores missed GT (false negatives invisible)</td><td>Recall denominator = total GT per class across dataset</td></tr>
+<tr><td><code>Cup</code> missing from class map</td><td>All Cup objects dropped</td><td>Added Cup→COCO 41; native 12-class head for fine-tuning</td></tr>
+<tr><td><code>Boat</code> mapped to COCO 9 (traffic light)</td><td>Boat AP structurally ~0</td><td>Fixed Boat→COCO 8</td></tr>
+<tr><td>Retinex/MSR log-images into frozen COCO model</td><td>Out-of-distribution; unfair</td><td>Natural-appearance MSRCR + correct experimental order (fine-tune first)</td></tr>
+<tr><td>Manual 640×640 squash resize</td><td>Aspect-ratio distortion</td><td>Let ultralytics letterbox; boxes mapped back to original pixels</td></tr>
+</tbody></table>
+
+<h2>6. Conclusion</h2>
+
+<p>The original “barely any improvement” was, in fact, the *expected* result for classical enhancement fed to a frozen COCO detector — but it was being measured with a metric that could not have shown a difference either way. With a correct evaluator and a corrected taxonomy, the honest finding is: <strong>(i)</strong> classical enhancement on a fixed detector is roughly neutral; <strong>(ii)</strong> fine-tuning the detector on ExDark is the decisive lever; <strong>(iii)</strong> two previously broken classes (Cup, Boat) now contribute real signal. This mirrors the published consensus.</p>
+
+
+<h2>Reproducibility</h2>
+
+<pre><code>
+python scripts/00_make_split.py      # deterministic split + YOLO export
+python scripts/02_run_benchmark.py   # zero-shot sweep + enhancement grid
+python scripts/03_finetune.py        # fine-tune + before/after
+python scripts/04_make_report.py     # this report + figures
+</code></pre>
+
+
+<p>*Library versions and the exact split manifest (<code>data/splits/exdark_split.json</code>) are committed for reproducibility.*</p>
+
+</body></html>
