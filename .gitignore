@@ -51,6 +51,8 @@ results/enhanced_images/
 #  their own lines, or the whole pattern is treated as literal and ignores nothing.)
 # YOLO-format export (symlinks + labels), regenerable from scripts/00_make_split.py
 data/exdark_yolo/
+# enhanced-domain exports (materialised enhanced images), regenerable; large
+data/exdark_yolo_*/
 # large path manifest; the JSON split is committed instead
 data/splits/*.csv
 # ultralytics training/val outputs (weights, plots, caches) — regenerable

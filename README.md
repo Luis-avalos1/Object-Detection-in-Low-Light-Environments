@@ -116,6 +116,25 @@ pytest -q                              # evaluator/enhancer unit tests
 
 Benchmark + inference run on CPU/MPS (Apple Silicon) — **no CUDA required**.
 
+### The decisive experiment: does enhancement help once the detector adapts?
+
+Everything above uses a **frozen** COCO detector, where enhancement is ~neutral.
+The fair test of *"enhancement → recognise more"* is to let the detector **learn**
+the enhanced domain. The `domain` stage fine-tunes the same base on **original**
+vs **enhanced** images (identical epochs/split/seed — only the pixels differ),
+then evaluates a 2×2 train-domain × test-domain matrix:
+
+```bash
+# On the Windows/Linux CUDA box (training the full split needs a GPU):
+python run.py --stages domain report --domain --device auto \
+  --domain-enhancers original clahe_lab --ft-epochs 100 --ft-fraction 1.0
+```
+
+Output: `results/domain.md` (the matrix, the matched-diagonal headline verdict,
+and a per-class AP comparison) + `results/metrics/domain_finetune.json`. The
+matched diagonal is the apples-to-apples answer; the off-diagonal shows
+train/test domain shift.
+
 ### Running on more than one machine
 
 Inference mAP is **device-independent** — the same seed, weights, and images give

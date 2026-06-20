@@ -82,16 +82,19 @@ def finetune(
     return {"name": name, "save_dir": str(save_dir), "best": str(best), "base": base, "epochs": epochs}
 
 
-def evaluate_on_test(weights: str, device: str | None = None, imgsz: int = C.DEFAULT_IMGSZ, split: str = "test") -> dict:
+def evaluate_on_test(weights: str, device: str | None = None, imgsz: int = C.DEFAULT_IMGSZ,
+                     split: str = "test", data_yaml: str | Path | None = None) -> dict:
     """Run ultralytics val() on a split of the export; returns headline mAPs.
 
     This uses ultralytics' own (correct, pooled) mAP implementation, giving an
-    independent cross-check of our hand-rolled evaluator.
+    independent cross-check of our hand-rolled evaluator. ``data_yaml`` selects a
+    specific dataset (e.g. an enhanced-domain export); defaults to the standard
+    original export.
     """
     from ultralytics import YOLO
 
     device = device or C.pick_device()
-    yaml = ensure_export()
+    yaml = Path(data_yaml) if data_yaml else ensure_export()
     model = YOLO(weights)
     metrics = model.val(data=str(yaml), split=split, imgsz=imgsz, device=device, verbose=False, plots=False)
     per_class = {}

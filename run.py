@@ -255,6 +255,24 @@ def archive_run(tag: str, device: str, per_class: int) -> None:
     print(f"  copied {copied} artifacts + RUN_INFO.txt")
 
 
+def stage_domain(base, enhancers, epochs, imgsz, device, fraction, freeze, cross_eval) -> None:
+    """The decisive A/B: fine-tune on original vs enhanced images, then compare."""
+    from lowlight import domain as DOM
+    hr("Domain fine-tune A/B (original-trained vs enhanced-trained)")
+    train_device = "cpu" if device == "mps" else device
+    if device == "mps":
+        print("  MPS detected -> training on CPU. This experiment is meant for a "
+              "CUDA GPU; on CPU it will be very slow. Prefer the Windows GPU box.")
+    if train_device == "cpu":
+        print("  WARNING: full-split training on CPU is impractical. Use --device "
+              "auto on a CUDA machine, or lower --ft-fraction for a quick check.")
+    print(f"  base={base} · domains={enhancers} · epochs={epochs} · imgsz={imgsz} · "
+          f"fraction={fraction} · device={train_device}")
+    DOM.run_domain_experiment(base=base, enhancers=tuple(enhancers), epochs=epochs,
+                              imgsz=imgsz, device=train_device, fraction=fraction,
+                              freeze=freeze, cross_eval=cross_eval)
+
+
 def stage_report() -> None:
     from lowlight import report as Rep
     hr("Report")
@@ -285,7 +303,7 @@ def stage_qualitative(detector, device) -> None:
 # CLI
 # --------------------------------------------------------------------------- #
 def main() -> int:
-    ALL = ["env", "split", "matrix", "finetune", "report", "qualitative"]
+    ALL = ["env", "split", "matrix", "finetune", "domain", "report", "qualitative"]
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--stages", nargs="*", default=None,
@@ -304,12 +322,20 @@ def main() -> int:
     ap.add_argument("--quick", action="store_true", help="fast smoke test (5/class, fast enhancers)")
     ap.add_argument("--full", action="store_true", help="all 12 enhancers incl. slow MSR/MSRCR + RT-DETR")
     ap.add_argument("--finetune", action="store_true", help="also run the fine-tuning stage")
-    # finetune knobs
+    ap.add_argument("--domain", action="store_true",
+                    help="run the domain A/B: fine-tune on original vs enhanced images "
+                         "and compare (the decisive test; GPU recommended)")
+    # finetune knobs (shared by finetune + domain stages)
     ap.add_argument("--ft-base", default="yolov8n.pt")
     ap.add_argument("--ft-epochs", type=int, default=100)
     ap.add_argument("--ft-fraction", type=float, default=1.0)
     ap.add_argument("--ft-per-class", type=int, default=None, help="balanced train subset/class")
     ap.add_argument("--ft-freeze", type=int, default=None, help="freeze first N layers (10=backbone)")
+    # domain A/B knobs
+    ap.add_argument("--domain-enhancers", nargs="*", default=["original", "clahe_lab"],
+                    help="the two (or more) domains to train+compare (default: original clahe_lab)")
+    ap.add_argument("--no-cross-eval", action="store_true",
+                    help="only evaluate each model on its matched domain (skip the off-diagonal)")
     args = ap.parse_args()
 
     device = resolve_device(args.device)
@@ -339,6 +365,9 @@ def main() -> int:
         # insert before report so the report can pick up finetune.json
         idx = stages.index("report") if "report" in stages else len(stages)
         stages.insert(idx, "finetune")
+    if args.domain and "domain" not in stages:
+        idx = stages.index("report") if "report" in stages else len(stages)
+        stages.insert(idx, "domain")
 
     t0 = time.time()
     if "env" in stages:
@@ -353,6 +382,9 @@ def main() -> int:
     if "finetune" in stages:
         _finetune_inline(args.ft_base, args.ft_epochs, args.imgsz, device,
                          args.ft_per_class, args.ft_freeze, args.ft_fraction)
+    if "domain" in stages:
+        stage_domain(args.ft_base, args.domain_enhancers, args.ft_epochs, args.imgsz,
+                     device, args.ft_fraction, args.ft_freeze, not args.no_cross_eval)
     if "report" in stages:
         stage_report()
     if "qualitative" in stages:
@@ -363,6 +395,8 @@ def main() -> int:
 
     hr(f"Done in {time.time() - t0:.0f}s")
     print("  Comparison : results/comparison.md  (+ figures/model_enhancement_matrix.png)")
+    if "domain" in stages:
+        print("  Domain A/B : results/domain.md  (+ metrics/domain_finetune.json)")
     print("  Full report: results/report.md / results/report.html")
     return 0
 
