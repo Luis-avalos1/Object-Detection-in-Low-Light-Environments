@@ -1,2 +1,0 @@
-model,epochs,zero_shot_mAP@0.5,finetuned_mAP@0.5,finetuned_mAP@[.5:.95],abs_gain
-yolov8n,20,0.5587,0.2184,0.1246,-0.3403
