@@ -23,6 +23,8 @@ def main():
     ap.add_argument("--weights", default=None, help="fine-tuned best.pt; if set, native ExDark labels")
     ap.add_argument("--n", type=int, default=6)
     ap.add_argument("--device", default="cpu")
+    ap.add_argument("--conf", type=float, default=0.25,
+                    help="display confidence threshold (0.001 eval threshold floods the panel)")
     ap.add_argument("--out", default=str(C.FIGURES_DIR / "qualitative_panel.png"))
     args = ap.parse_args()
 
@@ -46,7 +48,7 @@ def main():
         if img is None:
             continue
         h, w = img.shape[:2]
-        det = Det.predict(model, img, device=args.device)
+        det = Det.predict(model, img, conf=args.conf, device=args.device)
         if coco_space:
             b, sc, lb = coco_dets_to_exdark(det.boxes, det.scores, det.labels)
         else:
