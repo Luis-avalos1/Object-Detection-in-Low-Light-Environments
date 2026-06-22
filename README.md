@@ -1,5 +1,8 @@
 # Object Detection in Low-Light Environments
 
+🔗 **Live site:** <https://luis-avalos1.github.io/Object-Detection-in-Low-Light-Environments/>
+&nbsp;·&nbsp; 🎬 **Showcase:** [full-quality video](results/showcase/showcase.mp4) — preview below ↓
+
 A reproducible study of **image enhancement** and **detector fine-tuning** for
 object detection on the [ExDark](https://github.com/cs-chan/Exclusively-Dark-Image-Dataset)
 low-light dataset — rebuilt from a course project into a research-grade
@@ -17,6 +20,28 @@ honest ablation.
 
 📄 **Full results:** [`results/report.md`](results/report.md) ·
 🧪 **Methodology & bug analysis:** [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
+
+---
+
+## 🎬 Showcase
+
+A ~50-second end-to-end run of the pipeline: low-light **image enhancement**
+(a before/after wipe), the detector **drawing its predictions** in a sped-up
+montage, and the **pooled COCO-style metrics** printed live at the end —
+computed on the exact images shown in the video, by the real evaluator.
+
+<p align="center">
+  <a href="results/showcase/showcase.mp4">
+    <img src="results/showcase/showcase.gif" width="820"
+         alt="Showcase: low-light enhancement, the detector drawing boxes, and live COCO-style metrics">
+  </a>
+</p>
+
+<p align="center">
+  ▶︎ <a href="results/showcase/showcase.mp4"><b>Watch the full-quality MP4</b></a>
+  &nbsp;·&nbsp; regenerate any time with <code>python scripts/06_showcase.py</code>
+  (or <code>make showcase</code>)
+</p>
 
 ---
 
@@ -67,7 +92,8 @@ src/lowlight/
   finetune.py      # fine-tune on ExDark + evaluate (cross-checks evaluator)
   report.py        # figures + CSV + markdown/HTML report
   viz.py           # qualitative GT-vs-prediction panels
-scripts/           # 00_make_split, 02_run_benchmark, 03_finetune, 04_make_report, 05_qualitative
+  showcase.py      # animated showcase: enhancement + detection + live metrics
+scripts/           # 00_make_split, 02_run_benchmark, 03_finetune, 04_make_report, 05_qualitative, 06_showcase
 tests/             # known-answer tests for the evaluator and enhancers
 docs/METHODOLOGY.md
 results/           # metrics (json/csv), figures, report.md / report.html
@@ -85,8 +111,14 @@ python scripts/02_run_benchmark.py     # zero-shot sweep + enhancement grid -> r
 python scripts/03_finetune.py          # fine-tune + before/after          -> results/metrics/finetune.json
 python scripts/04_make_report.py       # figures + tables + report.md/html
 python scripts/05_qualitative.py       # GT vs prediction panels
+python scripts/06_showcase.py          # animated showcase video (-> results/showcase/)
 pytest -q                              # evaluator/enhancer unit tests
 ```
+
+The showcase renders a narrated, animated MP4 + GIF of the pipeline running
+(enhancement wipe → the detector drawing boxes → live pooled metrics). It needs
+[`ffmpeg`](https://ffmpeg.org/) on `PATH`; `--quick` makes a fast low-res
+preview.
 
 Benchmark + inference run on CPU/MPS (Apple Silicon) — **no CUDA required**.
 

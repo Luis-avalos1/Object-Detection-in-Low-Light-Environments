@@ -1,7 +1,7 @@
 # Low-light object detection — reproducible pipeline
 PY ?= venv/bin/python
 
-.PHONY: help split benchmark finetune report qualitative test all clean
+.PHONY: help split benchmark finetune report qualitative showcase test all clean
 
 help:
 	@echo "make split       - build deterministic split + YOLO export"
@@ -10,6 +10,7 @@ help:
 	@echo "make finetune-demo - fast balanced freeze-backbone fine-tune (weak GPU/CPU)"
 	@echo "make report      - figures, CSV tables, report.md/html"
 	@echo "make qualitative - GT vs prediction panels"
+	@echo "make showcase    - animated showcase video (enhancement + detection + metrics)"
 	@echo "make test        - run unit tests"
 	@echo "make all         - split -> benchmark -> finetune -> report"
 
@@ -35,6 +36,11 @@ report:
 
 qualitative:
 	$(PY) scripts/05_qualitative.py
+
+# Animated showcase video (-> results/showcase/showcase.mp4 + .gif). Needs ffmpeg
+# on PATH. Use ARGS="--quick" for a fast low-res preview.
+showcase:
+	$(PY) scripts/06_showcase.py $(ARGS)
 
 test:
 	$(PY) tests/test_metrics.py && $(PY) tests/test_dataset_enhance.py
