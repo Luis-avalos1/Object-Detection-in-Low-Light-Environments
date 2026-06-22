@@ -78,6 +78,7 @@
 
 <nav>
   <div class="wrap">
+    <a href="#showcase">showcase</a>
     <a href="#problem">the problem</a>
     <a href="#approach">approach</a>
     <a href="#findings">findings</a>
@@ -99,6 +100,25 @@
     </div>
   </div>
 </header>
+
+<!-- SHOWCASE -->
+<section id="showcase">
+  <div class="wrap">
+    <div class="label">00 / in motion</div>
+    <h2>The pipeline, running</h2>
+    <p class="lead">A fifty-second pass through the whole system, rendered by the project itself.</p>
+    <p>Low-light frames are enhanced in a before-and-after wipe, a detector draws its predictions box by box across a sped-up montage, and the run ends by printing the pooled COCO-style metrics. Nothing is mocked: the boxes and the numbers come from the real model and the real evaluator, computed on the exact images shown.</p>
+    <figure>
+      <video controls autoplay muted loop playsinline poster="assets/showcase_poster.jpg"
+             style="display:block; width:100%; height:auto; border:1px solid var(--line)">
+        <source src="assets/showcase.mp4" type="video/mp4"/>
+        <img src="assets/showcase.gif" alt="The low-light detection pipeline running end to end"/>
+      </video>
+      <figcaption>Stage one enhances the image, stage two draws the detector's predictions, stage three prints the metrics. Generated with <code>python scripts/06_showcase.py</code>.</figcaption>
+    </figure>
+  </div>
+</section>
+
 
 <!-- PROBLEM -->
 <section id="problem">
